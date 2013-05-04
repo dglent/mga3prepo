@@ -1,0 +1,306 @@
+#!/usr/bin/python3
+# Search a rpm for Mageia in extra repositories
+# Author: Dimitrios Glentadakis <dglent@gmail.com>, 2013
+# License: GNU-GPL with no warranty
+
+import urllib.request
+import os
+import os.path
+import subprocess
+import gettext
+import sys
+
+
+onoma='/.mga3prepo'
+onomaconf='mga3prepo.conf'
+home=os.getenv('HOME')
+# Creates config if file does n't exist (eg first launch)
+try:
+   os.chdir(home+onoma)
+except:
+   os.mkdir(home+onoma)
+   os.chdir(home+onoma)
+
+
+
+path='media_info/synthesis.hdlist.cz'
+
+# i18n
+__trans = gettext.translation('mga3prepo', fallback=True)
+_ = __trans.gettext
+
+def info():
+   print(_('Here is a list with some of the unofficial media for Mageia(2):'))
+   print(_('See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985'))
+   print(_('1. Czech Republic'))
+   print('http://petos.cz/rpm/mageia/2/i586/')
+   print('http://petos.cz/rpm/mageia/2/x86_64/')
+   print(_('2. Russia'))
+   print('http://packages.mageialinux.ru/mageia2/RPMS/i586/')
+   print('http://packages.mageialinux.ru/mageia2/RPMS/x86_64/')
+   print('http://packages.mageialinux.ru/mageia2/RPMS/noarch/')
+   print(_('3. Greece'))
+   print('http://www.mageia-gr.org/rpm/2/i586/')
+   print('http://www.mageia-gr.org/rpm/2/x86_64/')
+   print('http://www.mageia-gr.org/rpm/2/noarch/')
+   print(_('4. Poland'))
+   print('http://repo.mageia.org.pl/2/i586/')
+   print('http://repo.mageia.org.pl/2/x86_64/')
+   print(_('5. Spain'))
+   print('http://ftp.blogdrake.net/mageia/mageia2/free/i586/')
+   print('http://ftp.blogdrake.net/mageia/mageia2/free/x86_64/')
+   print('http://ftp.blogdrake.net/mageia/mageia2/non-free/i586/')
+   print('http://ftp.blogdrake.net/mageia/mageia2/non-free/x86_64/')
+   print(_('6. France'))
+   print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/core/')
+   print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/nonfree/')
+   print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/tainted/\n')
+   input()
+
+
+
+def make_list_media_url():
+   "Returns a list with the url of the medias"
+   lista=[]
+   dico=make_dict()
+   for (key, value) in dico.items():
+      lista.append(value[:-len(path)])
+   return lista
+
+
+def make_list_media_name():
+   "Returns a list with the names of the medias"
+   lista=[]
+   dico=make_dict()
+   for (key, value) in dico.items():
+      lista.append(key)
+   return lista
+
+
+def make_dict():
+   "Returns a dictionnary with the media"
+   media_dict={}
+   try:
+      arxeio=open(onomaconf,'r')
+      for i in arxeio:
+         pedio = i.rstrip('\n').split('@')
+         media_dict[pedio[0]]=pedio[1]
+      arxeio.close()
+      return media_dict
+   except:
+      return media_dict
+
+
+
+def check(name):
+   "Checks if the configuration file exist"
+   try:
+      arxeio=open(name,'r')
+      arxeio.close()
+      return 1
+   except:
+      return 0
+
+
+def add_media():
+   "Add a media in the list"
+
+   media_name_present=make_list_media_name()
+   media_url_present=make_list_media_url()
+
+   while True:
+      arxeio=open(onomaconf,'a')
+      list_media()
+      media_name=input(_('Enter media name (Enter to quit or * for info):\n'))
+      if media_name=='*':
+         info()
+         continue
+      if media_name=='':
+         break
+         arxeio.close()
+      if media_name in media_name_present:
+         print(_('*** The media name already exists'))
+         input()
+         continue
+      media_url=input(_('Enter media url:\n'))
+      if media_url=='':
+         print(_('You have to enter an url'))
+         input()
+         continue
+      if media_url in media_url_present:
+         print(_('*** The media url already exists'))
+         input()
+         continue
+
+
+      newpath=media_url+path
+      subprocess.call(['wget', '--timeout=10','--tries=1',newpath])
+
+      if os.path.exists('synthesis.hdlist.cz'):
+         media=(media_name+'@'+newpath+'\n')
+         arxeio.write(media)
+         arxeio.close()
+         print(_('\n *** Added media: ')+media_name+' '+media_url)
+         os.remove('synthesis.hdlist.cz')
+
+      else:
+         print(_('\n*** Cannot found media with synthesis in '+newpath+'\n'))
+         input()
+
+
+
+def delete_media():
+   media_d=make_dict()
+   arxeio=open(onomaconf,'r')
+
+   while True:
+      list_media()
+      name=input(_('Enter the name of the media to delete (Enter to quit):\n'))
+      if name=='': break
+      if name not in media_d:
+         print(_('*** The media does n\'t exist'))
+         input()
+         continue
+      mname=media_d.get(name)
+      media_in_conf=name+'@'+mname
+
+
+      arxeio = open(onomaconf,'r')
+      seires = arxeio.readlines()
+      arxeio.close()
+      arxeio = open(onomaconf,'w')
+      for seira in seires:
+         if seira!=media_in_conf+"\n":
+            arxeio.write(seira)
+      arxeio.close()
+
+
+def list_media():
+   "Parse the configuration file and print a list with the media"
+   try:
+      if check(onomaconf):
+         arxeio=open(onomaconf,'r')
+         print('-'*70+'\n')
+
+         while True:
+            lista=arxeio.readline()
+            if lista=='':
+               break
+            lista=lista.split('@')
+            print(lista[0],lista[1])
+         print('-'*70)
+         arxeio.close()
+
+   except:
+      print(_('Empty media list'))
+
+
+
+
+
+def fetch_synthesis(name):
+   "Download the synthesis files and search by given name"
+
+   media_list=make_dict()
+   lista1=[]
+   lista_d={}
+
+   # Download the synthesis.hdlist.cz for each repo and save it with .gz suffix
+   for (key, value) in media_list.items():
+
+      answer_res=''
+      newfile=key+'.gz'
+      subprocess.call(['wget','--timeout=10','--tries=1','-O', newfile,value])
+
+      #Exctract rpm names according the compression type
+      cmd=['file', newfile]
+      output = subprocess.Popen( cmd, stdout=subprocess.PIPE ).communicate()[0]
+      output=str(output, 'utf-8')
+      if output.count('gzip')>=1:
+         subprocess.call(['gzip','-d','-f', newfile])
+      if output.count('XZ')>=1:
+         subprocess.call(['xz','-f','--decompress','-S', '.gz',newfile])
+
+      file_present=False
+      try:
+         decompressed=open(key)
+         file_present=True
+      except:
+         print(_('No suche file '+key))
+
+      if file_present:
+         for i in decompressed:
+            pedio = i.rstrip('\n').split('@')[1:]
+            if pedio[0]=='info':
+               rpmname = pedio.pop(1)  #Keep only the field with the name of the rpm
+               lista_d[rpmname]=key    #Make a dictionnary {name of rpm: name of media}
+                                       # to use it below for finding the repo of the rpm
+      decompressed.close()
+
+   url=""
+
+   for (key, value) in lista_d.items():
+      url=media_list.get(value)
+      lkey=key.lower()
+      lname=name.lower()
+      if lkey.count(lname)>=1:
+            answer_res=('*** '+name+_(' in repo: "{0}" url: ').format(value)+url[:-len(path)]+key+'.rpm')
+            if answer_res in lista1:
+               continue
+            lista1.append(answer_res) # Make a list (lista1) with the results
+
+   count=0
+   print('-'*70+'\n')
+   for i in lista1:
+      print(i,'\n')
+   print('-'*70)
+
+   for i in range(0, len(lista1)):
+      count+=1
+   print(_('Total: '),count)
+
+
+
+
+      #fetched_media_compressed=urllib.request.urlopen(value)
+      #f=fetched_media_compressed.read()
+      #packages_data=gzip.GzipFile(mode='rb', fileobj=StringIO(base64.b64decode(f)))
+      #with io.TextIOWrapper(gzip.open(fetched_media_compressed, 'rb')) as f:
+
+
+
+
+### main program ###
+if len(sys.argv) > 1:
+   retr_list=make_list_media_url()
+   if len(retr_list)==0:
+      print(_("*** No configured media.\nLaunch the script without arguments,\
+               \nand add at least one media from the menu 'Add media'\n"))
+   else:
+      fetch_synthesis(sys.argv[1])
+
+if len(sys.argv)==1:
+   while True:
+      print('1 - '+_('Search package'))
+      print('2 - '+_('Add media'))
+      print('3 - '+_('List media'))
+      print('4 - '+_('Delete media'))
+
+      choice=input()
+      if choice=='':
+         break
+      if choice=='1':
+         retr_list=make_list_media_url()
+         if len(retr_list)==0:
+            print(_('*** You have to add at least one media first\n'))
+            input()
+            continue
+         name=input(_('Enter the name of the package:\n'))
+         fetch_synthesis(name)
+
+      if choice=='2':
+         add_media()
+      if choice=='3':
+         list_media()
+      if choice=='4':
+         delete_media()

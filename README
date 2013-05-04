@@ -1,0 +1,33 @@
+This script downloads the synthesis files of third party repositories that you need to define in the program,
+and search for a package by the given name.
+
+When you launch the script you will see the follow menu:
+------------------	
+1 - Search package
+2 - Add media
+3 - List media
+4 - Delete media
+------------------
+
+Also, you can launch the script with an argument (the name that you want to search), and you will not
+see the above menu but only the search results.
+
+
+Requirements
+-------------
+
+- Python 3
+- wget
+- gzip
+
+
+License
+--------
+
+GPLv2, see COPYING.
+
+
+Authors
+--------
+
+Dimitrios Glentadakis, <dglent@gmail.com>
