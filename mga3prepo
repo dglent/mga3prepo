@@ -232,9 +232,12 @@ def fetch_synthesis(name):
             for i in decompressed:
                 pedio = i.rstrip('\n').split('@')[1:]
                 if pedio[0]=='info':
-                    rpmname = pedio.pop(1)  #Keep only the field with the name of the rpm
-                    lista_d[rpmname]=key    #Make a dictionnary {name of rpm: name of media}
-                                            # to use it below for finding the repo of the rpm
+                    # Keep only the field with the name of the rpm
+                    # Make a dictionnary {name of rpm: name of media}
+                    # to use it below for finding the repo of the rpm
+                    rpmname = pedio.pop(1)
+                    lista_d[rpmname]=key
+
         decompressed.close()
 
     url=""
@@ -244,7 +247,9 @@ def fetch_synthesis(name):
         lkey=key.lower()
         lname=name.lower()
         if lkey.count(lname)>=1:
-                answer_res=('*** '+name+_(' in repo: "{0}" url: ').format(value)+url[:-len(path)]+key+'.rpm')
+                answer_res = '*** ' + name
+                answer_res += _(' in repo: "{0}" url: ')\
+                              .format(value)+url[:-len(path)]+key+'.rpm'
                 if answer_res in lista1:
                     continue
                 lista1.append(answer_res) # Make a list (lista1) with the results
