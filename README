@@ -19,6 +19,7 @@ Requirements
 - Python 3
 - wget
 - gzip
+- xz
 
 
 License
