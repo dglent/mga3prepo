@@ -15,6 +15,7 @@ BuildRequires:	python3-setuptools
 Requires:	python3
 Requires:	wget
 Requires:	gzip
+Requires:	xz
 
 %description
 A script in Python3 to search package from extra (unofficial or not) repositories.
