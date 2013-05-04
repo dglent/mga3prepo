@@ -2,7 +2,7 @@ Name:		mga3prepo
 Version:	0.6
 Release:	%mkrel 1
 Summary:	A script to search packages in extra repositories
-License:	GPL
+License:	GPLv3
 Group:		System/Configuration/Packaging
 Url:		http://glenbox.free.fr/%name/
 Source0:	http://glenbox.free.fr/%name/%version/%name-%version.tar.gz

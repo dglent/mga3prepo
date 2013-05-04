@@ -8,7 +8,7 @@ setup(name='mga3prepo',
       author="Dimitrios Glentadakis",
       author_email="dglent@gmail.com",
       url="http://glenbox.free.fr/mga3prepo/",
-      license="GPLv2",
+      license="GPLv3",
       platforms=["Linux"],
       scripts=["mga3prepo"],
       )
