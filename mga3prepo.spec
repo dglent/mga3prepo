@@ -44,7 +44,7 @@ mkdir -p %{buildroot}%{_bindir}
 install -D -m 755 %{name} \
 	 %{buildroot}%{_bindir}/
 	 
-chmod +x %buildroot%{_bindir}/
+chmod +x %{buildroot}%{_bindir}/
 
 
 ### Install translations ###
@@ -53,13 +53,13 @@ for f in *.po
 do
 		poname=${f:0:2}
 		mkdir -p %buildroot%{_datadir}/locale/$poname/LC_MESSAGES
-		install -m 644 usr/share/locale/$poname/LC_MESSAGES/%name.mo \
+		install -m 644 usr/share/locale/$poname/LC_MESSAGES/%{name}.mo \
 		"%{buildroot}%{_datadir}/locale/$poname/LC_MESSAGES/"
 done
 popd
 #############################
 
-%find_lang %name --with-html
+%find_lang %{name} --with-html
 
 
 %files -f %{name}.lang
