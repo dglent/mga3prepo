@@ -4,7 +4,7 @@ Release:	%mkrel 1
 Summary:	A script to search packages in extra repositories
 Summary(fr_FR):	Un script pour rechercher des paquets dans les dépôts supplémentaires
 License:	GPLv3
-Group:		System/Configuration/Packaging
+Group:		System/Packaging
 Url:		http://glenbox.free.fr/%{name}/
 Source0:	http://glenbox.free.fr/%{name}/%{version}/%{name}-%{version}.tar.gz
 
