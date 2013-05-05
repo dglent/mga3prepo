@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-03 17:36+0200\n"
+"POT-Creation-Date: 2013-05-05 15:17+0200\n"
 "PO-Revision-Date: 2013-05-03 17:39+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -17,61 +17,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: mga3prepo:33
+#: mga3prepo:46
 msgid "Here is a list with some of the unofficial media for Mageia(2):"
-msgstr ""
-"Εδώ είναι μια λίστα με μερικά από τα ανεπίσημα αποθετήρια για τη Mageia(2):"
+msgstr "Εδώ είναι μια λίστα με μερικά από τα ανεπίσημα αποθετήρια για τη Mageia(2):"
 
-#: mga3prepo:34
+#: mga3prepo:47
 msgid "See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
 msgstr "Δείτε επίσης: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
 
-#: mga3prepo:35
+#: mga3prepo:48
 msgid "1. Czech Republic"
 msgstr "1. Δημοκρατία της Τσεχίας"
 
-#: mga3prepo:38
+#: mga3prepo:51
 msgid "2. Russia"
 msgstr "2. Ρωσία"
 
-#: mga3prepo:42
+#: mga3prepo:55
 msgid "3. Greece"
 msgstr "3. Ελλάδα"
 
-#: mga3prepo:46
+#: mga3prepo:59
 msgid "4. Poland"
 msgstr "4. Πολωνία"
 
-#: mga3prepo:49
+#: mga3prepo:62
 msgid "5. Spain"
 msgstr "5. Ισπανία"
 
-#: mga3prepo:54
+#: mga3prepo:67
 msgid "6. France"
 msgstr "6. Γαλλία"
 
-#: mga3prepo:114
+#: mga3prepo:127
 msgid "Enter media name (Enter to quit or * for info):\n"
-msgstr ""
-"Εισάγετε το όνομα του αποθετηρίου (Enter για έξοδο ή * για πληροφορίες):\n"
+msgstr "Εισάγετε το όνομα του αποθετηρίου (Enter για έξοδο ή * για πληροφορίες):\n"
 
-#: mga3prepo:122
+#: mga3prepo:135
 msgid "*** The media name already exists"
 msgstr "*** Το όνομα του αποθετηρίου υπάρχει ήδη"
 
-#: mga3prepo:125
+#: mga3prepo:138
 msgid "Enter media url:\n"
 msgstr "Εισάγετε το url του αποθετηρίου:\n"
 
-#: mga3prepo:127
+#: mga3prepo:140
 msgid "You have to enter an url"
 msgstr "Θα πρέπει να εισάγετε ένα url"
 
-#: mga3prepo:131
+#: mga3prepo:144
 msgid "*** The media url already exists"
 msgstr "*** Το url του αποθετηρίου υπάρχει ήδη"
 
-#: mga3prepo:143
+#: mga3prepo:156
 msgid ""
 "\n"
 " *** Added media: "
@@ -79,7 +77,7 @@ msgstr ""
 "\n"
 " *** Προστέθηκε το μέσο: "
 
-#: mga3prepo:147
+#: mga3prepo:160
 msgid ""
 "\n"
 "*** Cannot found media with synthesis in "
@@ -87,61 +85,62 @@ msgstr ""
 "\n"
 "*** Αδύνατη η εύρεση αποθετηρίου με sythnesis στο  "
 
-#: mga3prepo:158
+#: mga3prepo:171
 msgid "Enter the name of the media to delete (Enter to quit):\n"
 msgstr "Εισάγετε το όνομα του αποθετηρίου προς διαγραφή (Enter για έξοδο):\n"
 
-#: mga3prepo:161
+#: mga3prepo:174
 msgid "*** The media does n't exist"
 msgstr "*** Το αποθετήριο δεν υπάρχει"
 
-#: mga3prepo:195
+#: mga3prepo:208
 msgid "Empty media list"
 msgstr "Η λίστα των αποθετηρίων είναι άδεια"
 
-#: mga3prepo:229
+#: mga3prepo:242
 msgid "No suche file "
 msgstr "Δεν υπάρχει το αρχείο "
 
-#: mga3prepo:247
+#: mga3prepo:264
 msgid " in repo: \"{0}\" url: "
 msgstr " στο αποθετήριο: «{0}» url: "
 
-#: mga3prepo:260
+#: mga3prepo:278
 msgid "Total: "
 msgstr "Σύνολο: "
 
-#: mga3prepo:277
+#: mga3prepo:295
+#, fuzzy
 msgid ""
 "*** No configured media.\n"
-"Launch the script without arguments,               \n"
+"Launch the script without arguments,                   \n"
 "and add at least one media from the menu 'Add media'\n"
 msgstr ""
 "*** Δεν βρέθηκαν ρυθμισμένα αποθετήρια.\n"
 "Εκτελέστε το script χωρίς ορίσματα,               \n"
 "και προσθέστε τουλάχιστον ένα μέσο από το μενού «Προσθήκη ενός αποθετηρίου»\n"
 
-#: mga3prepo:284
+#: mga3prepo:302
 msgid "Search package"
 msgstr "Αναζήτηση πακέτου"
 
-#: mga3prepo:285
+#: mga3prepo:303
 msgid "Add media"
 msgstr "Προσθήκη ενός αποθετηρίου"
 
-#: mga3prepo:286
+#: mga3prepo:304
 msgid "List media"
 msgstr "Εμφάνιση λίστας αποθετηρίων"
 
-#: mga3prepo:287
+#: mga3prepo:305
 msgid "Delete media"
 msgstr "Διαγραφή ενός αποθετηρίου"
 
-#: mga3prepo:295
+#: mga3prepo:313
 msgid "*** You have to add at least one media first\n"
 msgstr "Πρέπει να προσθέσετε τουλάχιστον ένα αποθετήριο πρώτα\n"
 
-#: mga3prepo:298
+#: mga3prepo:316
 msgid "Enter the name of the package:\n"
 msgstr "Εισάγετε το όνομα του πακέτου:\n"
 
