@@ -34,7 +34,7 @@ Lancez le script de 'mga3prepo' ou avec le nom du paquet comme argument.
 
 %build
 %{__python3} i18n.py
-%{__python3} ./setup.py build
+%{__python3} setup.py build
 
 
 %install
