@@ -30,7 +30,7 @@ supplémentaires (non officiels ou pas).
 Lancez le script de 'mga3prepo' ou avec le nom du paquet comme argument.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 %{__python3} i18n.py
