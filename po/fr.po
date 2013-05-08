@@ -83,7 +83,7 @@ msgid ""
 "*** Cannot found media with synthesis in "
 msgstr ""
 "\n"
-"*** Impossible de trouver le dépôt avec \"synthesis\" "
+"*** Impossible de trouver le dépôt avec \"synthesis\" dans "
 
 #: mga3prepo:171
 msgid "Enter the name of the media to delete (Enter to quit):\n"
