@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-05 15:17+0200\n"
+"POT-Creation-Date: 2013-05-09 08:55+0200\n"
 "PO-Revision-Date: 2013-05-05 15:20+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
@@ -17,59 +17,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: mga3prepo:46
+#: mga3prepo:49
 msgid "Here is a list with some of the unofficial media for Mageia(2):"
 msgstr "Voici une liste avec quelques dépôts non officiels pour Mageia (2):"
 
-#: mga3prepo:47
+#: mga3prepo:50
 msgid "See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
 msgstr "Voir aussi: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
 
-#: mga3prepo:48
+#: mga3prepo:51
 msgid "1. Czech Republic"
 msgstr "1. République Tchèque"
 
-#: mga3prepo:51
+#: mga3prepo:54
 msgid "2. Russia"
 msgstr "2. Russie"
 
-#: mga3prepo:55
+#: mga3prepo:58
 msgid "3. Greece"
 msgstr "3. Grèce"
 
-#: mga3prepo:59
+#: mga3prepo:62
 msgid "4. Poland"
 msgstr "4. Pologne"
 
-#: mga3prepo:62
+#: mga3prepo:65
 msgid "5. Spain"
 msgstr "5. Espagne"
 
-#: mga3prepo:67
+#: mga3prepo:70
 msgid "6. France"
 msgstr "6. France"
 
-#: mga3prepo:127
+#: mga3prepo:131
 msgid "Enter media name (Enter to quit or * for info):\n"
 msgstr "Saisissez le nom du dépôt (\"Enter\" pour quitter ou * pour info):\n"
 
-#: mga3prepo:135
+#: mga3prepo:139
 msgid "*** The media name already exists"
 msgstr "*** Le nom du dépôt existe déjà"
 
-#: mga3prepo:138
+#: mga3prepo:143
 msgid "Enter media url:\n"
 msgstr "Saisissez l'url du dépôt:\n"
 
-#: mga3prepo:140
+#: mga3prepo:145
 msgid "You have to enter an url"
 msgstr "Vous devez saisir une url"
 
-#: mga3prepo:144
+#: mga3prepo:149
 msgid "*** The media url already exists"
 msgstr "*** L'url du dépôt existe déjà"
 
-#: mga3prepo:156
+#: mga3prepo:162
 msgid ""
 "\n"
 " *** Added media: "
@@ -77,7 +77,7 @@ msgstr ""
 "\n"
 " *** Dépôt ajouté: "
 
-#: mga3prepo:160
+#: mga3prepo:165
 msgid ""
 "\n"
 "*** Cannot found media with synthesis in "
@@ -85,32 +85,31 @@ msgstr ""
 "\n"
 "*** Impossible de trouver le dépôt avec \"synthesis\" dans "
 
-#: mga3prepo:171
+#: mga3prepo:176
 msgid "Enter the name of the media to delete (Enter to quit):\n"
-msgstr ""
-"Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
+msgstr "Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
 
-#: mga3prepo:174
+#: mga3prepo:181
 msgid "*** The media does n't exist"
 msgstr "*** Le dépôt n'existe pas"
 
-#: mga3prepo:208
+#: mga3prepo:217
 msgid "Empty media list"
 msgstr "La liste des dépôts est vide"
 
-#: mga3prepo:242
+#: mga3prepo:252
 msgid "No suche file "
 msgstr "Fichier non existant "
 
-#: mga3prepo:264
+#: mga3prepo:274
 msgid " in repo: \"{0}\" url: "
 msgstr " dans le dépôt: \"{0}\" url: "
 
-#: mga3prepo:278
+#: mga3prepo:288
 msgid "Total: "
 msgstr "Total: "
 
-#: mga3prepo:295
+#: mga3prepo:299
 msgid ""
 "*** No configured media.\n"
 "Launch the script without arguments,                   \n"
@@ -119,27 +118,25 @@ msgstr ""
 "*** Aucun dépôts configurés, Lancez le script sans arguments,               \n"
 "et ajoutez au moins un dépôt depuis le menu «Ajouter un dépôt»\n"
 
-#: mga3prepo:302
+#: mga3prepo:306
 msgid "Search package"
 msgstr "Recherche de paquetage"
 
-#: mga3prepo:303
+#: mga3prepo:307
 msgid "Add media"
 msgstr "Ajouter un dépôt"
 
-#: mga3prepo:304
+#: mga3prepo:308
 msgid "List media"
 msgstr "Afficher les dépôts"
 
-#: mga3prepo:305
+#: mga3prepo:309
 msgid "Delete media"
 msgstr "Supprimer un dépôt"
 
-#: mga3prepo:313
-msgid "*** You have to add at least one media first\n"
-msgstr "*** Vous devez d'abord ajouter au moins un dépôt\n"
-
-#: mga3prepo:316
+#: mga3prepo:320
 msgid "Enter the name of the package:\n"
 msgstr "Saisissez le nom du paquetage:\n"
 
+#~ msgid "*** You have to add at least one media first\n"
+#~ msgstr "*** Vous devez d'abord ajouter au moins un dépôt\n"
