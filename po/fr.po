@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 08:55+0200\n"
+"POT-Creation-Date: 2013-05-09 08:58+0200\n"
 "PO-Revision-Date: 2013-05-05 15:20+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
@@ -109,6 +109,10 @@ msgstr " dans le dépôt: \"{0}\" url: "
 msgid "Total: "
 msgstr "Total: "
 
+#: mga3prepo:295
+msgid "*** You have to add at least one media first\n"
+msgstr "*** Vous devez d'abord ajouter au moins un dépôt\n"
+
 #: mga3prepo:299
 msgid ""
 "*** No configured media.\n"
@@ -137,6 +141,3 @@ msgstr "Supprimer un dépôt"
 #: mga3prepo:320
 msgid "Enter the name of the package:\n"
 msgstr "Saisissez le nom du paquetage:\n"
-
-#~ msgid "*** You have to add at least one media first\n"
-#~ msgstr "*** Vous devez d'abord ajouter au moins un dépôt\n"

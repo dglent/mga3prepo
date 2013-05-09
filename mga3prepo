@@ -292,7 +292,7 @@ def fetch_synthesis(name):
 
 ### main program ###
 llength = len(make_list_media_url())
-nomedia = '*** You have to add at least one media first\n'
+nomedia = _('*** You have to add at least one media first\n')
 
 if len(sys.argv) > 1:
     if llength == 0:
@@ -314,7 +314,7 @@ if len(sys.argv) == 1:
         if choice == '1':
             retr_list = make_list_media_url()
             if llength == 0:
-                print(_(nomedia))
+                print(nomedia)
                 input()
                 continue
             name = input(_('Enter the name of the package:\n'))
@@ -324,13 +324,13 @@ if len(sys.argv) == 1:
             add_media()
         if choice == '3':
             if llength == 0:
-                print(_(nomedia))
+                print(nomedia)
                 input()
             else:
                 list_media()
         if choice == '4':
             if llength == 0:
-                print(_(nomedia))
+                print(nomedia)
                 input()
             else:
                 delete_media()
