@@ -291,9 +291,10 @@ def fetch_synthesis(name):
 
 
 ### main program ###
+llength = len(make_list_media_url())
+
 if len(sys.argv) > 1:
-    retr_list = make_list_media_url()
-    if len(retr_list) == 0:
+    if llength == 0:
         print(_("*** No configured media.\nLaunch the script without arguments,\
                    \nand add at least one media from the menu 'Add media'\n"))
     else:
@@ -311,7 +312,7 @@ if len(sys.argv) == 1:
             break
         if choice == '1':
             retr_list = make_list_media_url()
-            if len(retr_list) == 0:
+            if llength == 0:
                 print(_('*** You have to add at least one media first\n'))
                 input()
                 continue
@@ -321,6 +322,14 @@ if len(sys.argv) == 1:
         if choice == '2':
             add_media()
         if choice == '3':
-            list_media()
+            if llength == 0:
+                print(_('*** You have to add at least one media first\n'))
+                input()
+            else:
+                list_media()
         if choice == '4':
-            delete_media()
+            if llength == 0:
+                print(_('*** You have to add at least one media first\n'))
+                input()
+            else:
+                delete_media()
