@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-10 16:51+0200\n"
+"POT-Creation-Date: 2013-05-10 17:59+0200\n"
 "PO-Revision-Date: 2013-05-10 16:52+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
@@ -78,6 +78,7 @@ msgstr ""
 " *** Dépôt ajouté: "
 
 #: mga3prepo:163
+#, fuzzy
 msgid ""
 "\n"
 "*** Cannot found media with synthesis in "
@@ -87,8 +88,7 @@ msgstr ""
 
 #: mga3prepo:174
 msgid "Enter the name of the media to delete (Enter to quit):\n"
-msgstr ""
-"Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
+msgstr "Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
 
 #: mga3prepo:179
 msgid "*** The media does n't exist"
@@ -142,4 +142,3 @@ msgstr "Supprimer un dépôt"
 #: mga3prepo:345
 msgid "Enter the name of the package:\n"
 msgstr "Saisissez le nom du paquetage:\n"
-

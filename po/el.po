@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-10 16:51+0200\n"
-"PO-Revision-Date: 2013-05-10 16:52+0200\n"
+"POT-Creation-Date: 2013-05-10 17:59+0200\n"
+"PO-Revision-Date: 2013-05-10 17:46+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -19,8 +19,7 @@ msgstr ""
 
 #: mga3prepo:52
 msgid "Here is a list with some of the unofficial media for Mageia(2):"
-msgstr ""
-"Εδώ είναι μια λίστα με μερικά από τα ανεπίσημα αποθετήρια για τη Mageia(2):"
+msgstr "Εδώ είναι μια λίστα με μερικά από τα ανεπίσημα αποθετήρια για τη Mageia(2):"
 
 #: mga3prepo:53
 msgid "See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
@@ -52,8 +51,7 @@ msgstr "6. Γαλλία"
 
 #: mga3prepo:129
 msgid "Enter media name (Enter to quit or * for info):\n"
-msgstr ""
-"Εισάγετε το όνομα του αποθετηρίου (Enter για έξοδο ή * για πληροφορίες):\n"
+msgstr "Εισάγετε το όνομα του αποθετηρίου (Enter για έξοδο ή * για πληροφορίες):\n"
 
 #: mga3prepo:137
 msgid "*** The media name already exists"
@@ -80,12 +78,11 @@ msgstr ""
 " *** Προστέθηκε το μέσο: "
 
 #: mga3prepo:163
+#, fuzzy
 msgid ""
 "\n"
 "*** Cannot found media with synthesis in "
-msgstr ""
-"\n"
-"*** Αδύνατη η εύρεση αποθετηρίου με sythnesis στο  "
+msgstr "*** Αδύνατη η εύρεση αποθετηρίου με sythnesis στο "
 
 #: mga3prepo:174
 msgid "Enter the name of the media to delete (Enter to quit):\n"
