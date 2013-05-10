@@ -1,12 +1,12 @@
 Name:		mga3prepo
-Version:	0.6
+Version:	0.7
 Release:	%mkrel 1
 Summary:	A script to search packages in extra repositories
 Summary(fr_FR):	Un script pour rechercher des paquets dans les dépôts supplémentaires
 License:	GPLv3
 Group:		System/Packaging
-Url:		http://glenbox.free.fr/%{name}/
-Source0:	http://glenbox.free.fr/%{name}/%{version}/%{name}-%{version}.tar.gz
+Url:		https://github.com/dglent/mga3prepo
+Source0:	%{name}-%{version}.tar.gz
 
 BuildArch:	noarch
 
@@ -68,6 +68,10 @@ popd
 %{python3_sitelib}/%{name}-%{version}-py%py3ver.egg-info
 
 %changelog
+* Fri May 10 2013 dimitrios (MLO Team) <dimitrios> 0.7-1.mga3
+- Make searchs faster after downloading once the media
+  when searching packages from the main menu.
+- Fix some minor bugs (wrongly displayed messages)
 
 * Sat May 04 2013 dimitrios (MLO Team) <dimitrios> 0.6-1.mga3
 + New version: 0.6
