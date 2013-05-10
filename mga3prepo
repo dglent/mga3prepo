@@ -113,16 +113,6 @@ def make_dict():
 
 
 
-def check(name):
-    "Checks if the configuration file exist"
-    try:
-        file_c = open(name,'r')
-        file_c.close()
-        return 1
-    except:
-        return 0
-
-
 def add_media():
     "Add a media in the list"
 
@@ -204,25 +194,25 @@ def delete_media():
 
 def list_media():
     "Parse the configuration file and print a list with the media"
+    flag_empty = True
     try:
-        if check(conf):
-            file_c = open(conf,'r')
-            print('-'*70+'\n')
+        file_c = open(conf,'r')
+        print('-'*70+'\n')
 
-            while True:
-                lista = file_c.readline()
-                if lista == '':
-                    break
-                lista = lista.split('@')
-                print(lista[0],lista[1])
-            print('-'*70)
-            file_c.close()
+        while True:
+            lista = file_c.readline()
+            if lista == '':
+                break
+            lista = lista.split('@')
+            flag_empty = False
+            print(lista[0],lista[1])
+        file_c.close()
 
     except:
-        print(_('Empty media list'))
+        if flag_empty == True:
+            print(_('Empty media list'))
 
-
-
+    print('-'*70+'\n')
 
 
 def fetch_synthesis(name):
