@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-10 16:15+0200\n"
-"PO-Revision-Date: 2013-05-10 16:16+0200\n"
+"POT-Creation-Date: 2013-05-10 16:51+0200\n"
+"PO-Revision-Date: 2013-05-10 16:52+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -104,8 +104,8 @@ msgid "No suche file "
 msgstr "Δεν υπάρχει το αρχείο "
 
 #: mga3prepo:289
-msgid " in repo: \"{0}\" url: "
-msgstr " στο αποθετήριο: «{0}» url: "
+msgid " in repo: \"{0}\" url: \n"
+msgstr " στο αποθετήριο: «{0}» url: \n"
 
 #: mga3prepo:303
 msgid "Total: "

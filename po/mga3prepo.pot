@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-10 16:15+0200\n"
+"POT-Creation-Date: 2013-05-10 16:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,7 +98,7 @@ msgid "No suche file "
 msgstr ""
 
 #: mga3prepo:289
-msgid " in repo: \"{0}\" url: "
+msgid " in repo: \"{0}\" url: \n"
 msgstr ""
 
 #: mga3prepo:303

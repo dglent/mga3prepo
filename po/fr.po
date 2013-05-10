@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-10 16:15+0200\n"
-"PO-Revision-Date: 2013-05-05 15:20+0200\n"
+"POT-Creation-Date: 2013-05-10 16:51+0200\n"
+"PO-Revision-Date: 2013-05-10 16:52+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
 "Language: fr\n"
@@ -87,7 +87,8 @@ msgstr ""
 
 #: mga3prepo:174
 msgid "Enter the name of the media to delete (Enter to quit):\n"
-msgstr "Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
+msgstr ""
+"Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
 
 #: mga3prepo:179
 msgid "*** The media does n't exist"
@@ -102,8 +103,8 @@ msgid "No suche file "
 msgstr "Fichier non existant "
 
 #: mga3prepo:289
-msgid " in repo: \"{0}\" url: "
-msgstr " dans le dépôt: \"{0}\" url: "
+msgid " in repo: \"{0}\" url: \n"
+msgstr " dans le dépôt: \"{0}\" url: \n"
 
 #: mga3prepo:303
 msgid "Total: "
@@ -141,3 +142,4 @@ msgstr "Supprimer un dépôt"
 #: mga3prepo:345
 msgid "Enter the name of the package:\n"
 msgstr "Saisissez le nom du paquetage:\n"
+
