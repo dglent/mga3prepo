@@ -22,10 +22,13 @@ import subprocess
 import gettext
 import sys
 
+global times
 
 name_cd = '/.mga3prepo'
 conf = 'mga3prepo.conf'
 home = os.getenv('HOME')
+
+
 
 # Creates config if file does n't exist (eg first launch)
 try:
@@ -218,25 +221,40 @@ def list_media():
 def fetch_synthesis(name):
     "Download the synthesis files and search by given name"
 
+    global times
     media_list = make_dict()
     lista1 = []
     lista_d = {}
+    counter = 0
 
     # Download the synthesis.hdlist.cz for each repo and save it with .gz suffix
     for (key, value) in media_list.items():
+        counter += 1
 
-        answer_res = ''
-        newfile = key+'.gz'
-        subprocess.call(['wget','--timeout=10','--tries=1','-O', newfile,value])
+        # Download the synthesis only one time
+        if times <= 1:
+            newfile = key+'.gz'
+            subprocess.call(['wget','--timeout=10','--tries=1','-O', newfile,value])
 
-        #Exctract rpm names according the compression type
-        cmd = ['file', newfile]
-        output = subprocess.Popen( cmd, stdout=subprocess.PIPE ).communicate()[0]
-        output = str(output, 'utf-8')
-        if output.count('gzip') >= 1:
-            subprocess.call(['gzip','-d','-f', newfile])
-        if output.count('XZ') >= 1:
-            subprocess.call(['xz','-f','--decompress','-S', '.gz',newfile])
+            #Exctract rpm names according the compression type
+            cmd = ['file', newfile]
+            output = subprocess.Popen( cmd, stdout=subprocess.PIPE ).communicate()[0]
+            output = str(output, 'utf-8')
+
+            if output.count('gzip') >= 1:
+                subprocess.call(['gzip','-d','-f', newfile])
+            if output.count('XZ') >= 1:
+                subprocess.call(['xz','-f','--decompress','-S', '.gz',newfile])
+
+            # After the first download of the synthesis files
+            # don't download them again, to make rpm searches faster
+            if times == 1:
+                if counter == len(media_list):
+                    times = 2
+
+        #-------------------------------------------------------------------
+        # The same time decompress the downloaded file and add the
+        # rpm names in a dictionnary (lista_d)
 
         file_present = False
 
@@ -257,9 +275,11 @@ def fetch_synthesis(name):
                     lista_d[rpmname] = key
 
         decompressed.close()
-
+        #-----------------------------------------------------------------
     url = ""
+    answer_res = ""
 
+    # In the list we search if any rpm name matches
     for (key, value) in lista_d.items():
         url = media_list.get(value)
         lkey = key.lower()
@@ -281,22 +301,32 @@ def fetch_synthesis(name):
     for i in range(0, len(lista1)):
         count+=1
     print(_('Total: '),count)
+    print('\n')
+    times=2
+
+
 
 
 
 
 ### main program ###
+
 llength = len(make_list_media_url())
 nomedia = _('*** You have to add at least one media first\n')
 
+# If the script has an argument
 if len(sys.argv) > 1:
     if llength == 0:
         print(_("*** No configured media.\nLaunch the script without arguments,\
                    \nand add at least one media from the menu 'Add media'\n"))
     else:
+        times = 0
         fetch_synthesis(sys.argv[1])
 
+# If the script does not have any argument
 if len(sys.argv) == 1:
+    times = 1
+
     while True:
         print('1 - '+_('Search package'))
         print('2 - '+_('Add media'))
