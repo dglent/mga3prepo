@@ -119,10 +119,9 @@ def make_dict():
 def add_media():
     "Add a media in the list"
 
-    media_name_present = make_list_media_name()
-    media_url_present = make_list_media_url()
-
     while True:
+        name_present = make_list_media_name()
+        url_present = make_list_media_url()
         file_c = open(conf,'a')
         list_media()
 
@@ -133,7 +132,7 @@ def add_media():
         if media_name == '':
             break
             file_c.close()
-        if media_name in media_name_present:
+        if media_name in name_present:
             print(_('*** The media name already exists'))
             input()
             continue
@@ -143,7 +142,7 @@ def add_media():
             print(_('You have to enter an url'))
             input()
             continue
-        if media_url in media_url_present:
+        if media_url in url_present:
             print(_('*** The media url already exists'))
             input()
             continue
@@ -157,7 +156,9 @@ def add_media():
             media = (media_name+'@'+newpath+'\n')
             file_c.write(media)
             file_c.close()
-            print(_('\n *** Added media: ')+media_name+' '+media_url)
+            print(_('\n *** Added media: ')+media_name)
+            print(media_url)
+            input()
             os.remove('synthesis.hdlist.cz')
         else:
             print('\n')
@@ -320,7 +321,7 @@ nomedia = _('*** You have to add at least one media first\n')
 if len(sys.argv) > 1:
     if llength == 0:
         print(_("*** No configured media.\nLaunch the script without arguments,\
-                   \nand add at least one media from the menu 'Add media'\n"))
+                 \nand add at least one media from the menu 'Add media'\n"))
     else:
         times = 0
         fetch_synthesis(sys.argv[1])
