@@ -146,6 +146,8 @@ def add_media():
             print(_('*** The media url already exists'))
             input()
             continue
+        if media_url.endswith('/') == False:
+            media_url = media_url+'/'
 
 
         # The url of the synthesis
