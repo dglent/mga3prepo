@@ -345,8 +345,17 @@ if len(sys.argv) == 1:
                 print(nomedia)
                 input()
                 continue
-            name = input(_('Enter the name of the package:\n'))
-            fetch_synthesis(name)
+            while True:
+                print(_("Press 'enter' to quit, '*' to show all packages"))
+                print(_('Enter the name of the package:'))
+                name = input()
+                print('\n')
+                if name == '':
+                    break
+                if name == '*':
+                    name = ''
+                fetch_synthesis(name)
+
 
         if choice == '2':
             add_media()
