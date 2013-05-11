@@ -322,8 +322,9 @@ nomedia = _('*** You have to add at least one media first\n')
 # If the script has an argument
 if len(sys.argv) > 1:
     if llength == 0:
-        print(_("*** No configured media.\nLaunch the script without arguments,\
-                 \nand add at least one media from the menu 'Add media'\n"))
+        print(_("*** No configured media ***"))
+        print(_('Launch the script without arguments,'))
+        print(_("and add at least one media from the menu 'Add media'"))
     else:
         times = 0
         fetch_synthesis(sys.argv[1])

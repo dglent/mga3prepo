@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-11 10:24+0200\n"
-"PO-Revision-Date: 2013-05-10 17:46+0200\n"
+"POT-Creation-Date: 2013-05-11 10:57+0200\n"
+"PO-Revision-Date: 2013-05-11 10:52+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -69,7 +69,7 @@ msgstr "Θα πρέπει να εισάγετε ένα url"
 msgid "*** The media url already exists"
 msgstr "*** Το url του αποθετηρίου υπάρχει ήδη"
 
-#: mga3prepo:159
+#: mga3prepo:161
 msgid ""
 "\n"
 " *** Added media: "
@@ -77,69 +77,83 @@ msgstr ""
 "\n"
 " *** Προστέθηκε το μέσο: "
 
-#: mga3prepo:165
-#, fuzzy
+#: mga3prepo:167
 msgid "*** Cannot found media with synthesis in:"
-msgstr "*** Αδύνατη η εύρεση αποθετηρίου με sythnesis στο "
+msgstr "*** Αδύνατη η εύρεση αποθετηρίου με «synthesis» στο:"
 
-#: mga3prepo:177
+#: mga3prepo:179
 msgid "Enter the name of the media to delete (Enter to quit):\n"
 msgstr "Εισάγετε το όνομα του αποθετηρίου προς διαγραφή (Enter για έξοδο):\n"
 
-#: mga3prepo:182
+#: mga3prepo:184
 msgid "*** The media does n't exist"
 msgstr "*** Το αποθετήριο δεν υπάρχει"
 
-#: mga3prepo:219
+#: mga3prepo:221
 msgid "Empty media list"
 msgstr "Η λίστα των αποθετηρίων είναι άδεια"
 
-#: mga3prepo:268
+#: mga3prepo:270
 msgid "No suche file "
 msgstr "Δεν υπάρχει το αρχείο "
 
-#: mga3prepo:292
+#: mga3prepo:294
 msgid " in repo: \"{0}\" url: \n"
 msgstr " στο αποθετήριο: «{0}» url: \n"
 
-#: mga3prepo:306
+#: mga3prepo:308
 msgid "Total: "
 msgstr "Σύνολο: "
 
-#: mga3prepo:318
+#: mga3prepo:320
 msgid "*** You have to add at least one media first\n"
 msgstr "Πρέπει να προσθέσετε τουλάχιστον ένα αποθετήριο πρώτα\n"
 
-#: mga3prepo:323
-#, fuzzy
-msgid ""
-"*** No configured media.\n"
-"Launch the script without arguments,                 \n"
-"and add at least one media from the menu 'Add media'\n"
+#: mga3prepo:325
+msgid "*** No configured media ***"
 msgstr ""
-"*** Δεν βρέθηκαν ρυθμισμένα αποθετήρια.\n"
-"Εκτελέστε το script χωρίς ορίσματα,               \n"
-"και προσθέστε τουλάχιστον ένα μέσο από το μενού «Προσθήκη ενός αποθετηρίου»\n"
 
-#: mga3prepo:334
+#: mga3prepo:326
+msgid "Launch the script without arguments,"
+msgstr ""
+
+#: mga3prepo:327
+msgid "and add at least one media from the menu 'Add media'"
+msgstr ""
+
+#: mga3prepo:337
 msgid "Search package"
 msgstr "Αναζήτηση πακέτου"
 
-#: mga3prepo:335
+#: mga3prepo:338
 msgid "Add media"
 msgstr "Προσθήκη ενός αποθετηρίου"
 
-#: mga3prepo:336
+#: mga3prepo:339
 msgid "List media"
 msgstr "Εμφάνιση λίστας αποθετηρίων"
 
-#: mga3prepo:337
+#: mga3prepo:340
 msgid "Delete media"
 msgstr "Διαγραφή ενός αποθετηρίου"
 
-#: mga3prepo:348
-msgid "Enter the name of the package:\n"
-msgstr "Εισάγετε το όνομα του πακέτου:\n"
+#: mga3prepo:352
+msgid "Press 'enter' to quit, '*' to show all packages"
+msgstr "Πατήστε «enter» για έξοδο, «*» για εμφάνιση όλων των πακέτων"
+
+#: mga3prepo:353
+msgid "Enter the name of the package:"
+msgstr "Εισάγετε το όνομα του πακέτου:"
 
 #~ msgid "\" url: "
 #~ msgstr "» url: "
+
+#, fuzzy
+#~ msgid ""
+#~ "*** No configured media.\n"
+#~ "Launch the script without arguments,\n"
+#~ "                 and add at least one media from the menu 'Add media'\n"
+#~ msgstr ""
+#~ "*** Δεν βρέθηκαν ρυθμισμένα αποθετήρια.\n"
+#~ "Εκτελέστε το script χωρίς ορίσματα,\n"
+#~ "και προσθέστε τουλάχιστον ένα μέσο από το μενού «Προσθήκη ενός αποθετηρίου»\n"

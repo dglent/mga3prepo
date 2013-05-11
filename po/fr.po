@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-11 10:24+0200\n"
+"POT-Creation-Date: 2013-05-11 10:57+0200\n"
 "PO-Revision-Date: 2013-05-10 16:52+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
@@ -69,7 +69,7 @@ msgstr "Vous devez saisir une url"
 msgid "*** The media url already exists"
 msgstr "*** L'url du dépôt existe déjà"
 
-#: mga3prepo:159
+#: mga3prepo:161
 msgid ""
 "\n"
 " *** Added media: "
@@ -77,67 +77,83 @@ msgstr ""
 "\n"
 " *** Dépôt ajouté: "
 
-#: mga3prepo:165
+#: mga3prepo:167
 #, fuzzy
 msgid "*** Cannot found media with synthesis in:"
 msgstr ""
 "\n"
 "*** Impossible de trouver le dépôt avec \"synthesis\" dans "
 
-#: mga3prepo:177
+#: mga3prepo:179
 msgid "Enter the name of the media to delete (Enter to quit):\n"
 msgstr "Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
 
-#: mga3prepo:182
+#: mga3prepo:184
 msgid "*** The media does n't exist"
 msgstr "*** Le dépôt n'existe pas"
 
-#: mga3prepo:219
+#: mga3prepo:221
 msgid "Empty media list"
 msgstr "La liste des dépôts est vide"
 
-#: mga3prepo:268
+#: mga3prepo:270
 msgid "No suche file "
 msgstr "Fichier non existant "
 
-#: mga3prepo:292
+#: mga3prepo:294
 msgid " in repo: \"{0}\" url: \n"
 msgstr " dans le dépôt: \"{0}\" url: \n"
 
-#: mga3prepo:306
+#: mga3prepo:308
 msgid "Total: "
 msgstr "Total: "
 
-#: mga3prepo:318
+#: mga3prepo:320
 msgid "*** You have to add at least one media first\n"
 msgstr "*** Vous devez d'abord ajouter au moins un dépôt\n"
 
-#: mga3prepo:323
-#, fuzzy
-msgid ""
-"*** No configured media.\n"
-"Launch the script without arguments,                 \n"
-"and add at least one media from the menu 'Add media'\n"
+#: mga3prepo:325
+msgid "*** No configured media ***"
 msgstr ""
-"*** Aucun dépôts configurés, Lancez le script sans arguments,               \n"
-"et ajoutez au moins un dépôt depuis le menu «Ajouter un dépôt»\n"
 
-#: mga3prepo:334
+#: mga3prepo:326
+msgid "Launch the script without arguments,"
+msgstr ""
+
+#: mga3prepo:327
+msgid "and add at least one media from the menu 'Add media'"
+msgstr ""
+
+#: mga3prepo:337
 msgid "Search package"
 msgstr "Recherche de paquetage"
 
-#: mga3prepo:335
+#: mga3prepo:338
 msgid "Add media"
 msgstr "Ajouter un dépôt"
 
-#: mga3prepo:336
+#: mga3prepo:339
 msgid "List media"
 msgstr "Afficher les dépôts"
 
-#: mga3prepo:337
+#: mga3prepo:340
 msgid "Delete media"
 msgstr "Supprimer un dépôt"
 
-#: mga3prepo:348
-msgid "Enter the name of the package:\n"
+#: mga3prepo:352
+msgid "Press 'enter' to quit, '*' to show all packages"
+msgstr ""
+
+#: mga3prepo:353
+#, fuzzy
+msgid "Enter the name of the package:"
 msgstr "Saisissez le nom du paquetage:\n"
+
+#, fuzzy
+#~ msgid ""
+#~ "*** No configured media.\n"
+#~ "Launch the script without arguments,\n"
+#~ "                 and add at least one media from the menu 'Add media'\n"
+#~ msgstr ""
+#~ "*** Aucun dépôts configurés, Lancez le script sans arguments,               \n"
+#~ "et ajoutez au moins un dépôt depuis le menu «Ajouter un dépôt»\n"
