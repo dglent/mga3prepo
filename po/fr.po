@@ -140,7 +140,7 @@ msgstr "Supprimer un dépôt"
 
 #: mga3prepo:353
 msgid "Press 'enter' to quit, '*' to show all packages"
-msgstr ""
+msgstr "Appuyez sur 'enter' pour quitter, ou '*' pour afficher tous les paquetages disponibles"
 
 #: mga3prepo:354
 msgid "Enter the name of the package:"
