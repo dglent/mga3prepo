@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-11 10:57+0200\n"
+"POT-Creation-Date: 2013-05-11 11:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,80 +65,80 @@ msgstr ""
 msgid "You have to enter an url"
 msgstr ""
 
-#: mga3prepo:146
+#: mga3prepo:148
 msgid "*** The media url already exists"
 msgstr ""
 
-#: mga3prepo:161
+#: mga3prepo:162
 msgid ""
 "\n"
 " *** Added media: "
 msgstr ""
 
-#: mga3prepo:167
+#: mga3prepo:168
 msgid "*** Cannot found media with synthesis in:"
 msgstr ""
 
-#: mga3prepo:179
+#: mga3prepo:180
 msgid "Enter the name of the media to delete (Enter to quit):\n"
 msgstr ""
 
-#: mga3prepo:184
+#: mga3prepo:185
 msgid "*** The media does n't exist"
 msgstr ""
 
-#: mga3prepo:221
+#: mga3prepo:222
 msgid "Empty media list"
 msgstr ""
 
-#: mga3prepo:270
+#: mga3prepo:271
 msgid "No suche file "
 msgstr ""
 
-#: mga3prepo:294
+#: mga3prepo:295
 msgid " in repo: \"{0}\" url: \n"
 msgstr ""
 
-#: mga3prepo:308
+#: mga3prepo:309
 msgid "Total: "
 msgstr ""
 
-#: mga3prepo:320
+#: mga3prepo:321
 msgid "*** You have to add at least one media first\n"
 msgstr ""
 
-#: mga3prepo:325
+#: mga3prepo:326
 msgid "*** No configured media ***"
 msgstr ""
 
-#: mga3prepo:326
+#: mga3prepo:327
 msgid "Launch the script without arguments,"
 msgstr ""
 
-#: mga3prepo:327
+#: mga3prepo:328
 msgid "and add at least one media from the menu 'Add media'"
 msgstr ""
 
-#: mga3prepo:337
+#: mga3prepo:338
 msgid "Search package"
 msgstr ""
 
-#: mga3prepo:338
+#: mga3prepo:339
 msgid "Add media"
 msgstr ""
 
-#: mga3prepo:339
+#: mga3prepo:340
 msgid "List media"
 msgstr ""
 
-#: mga3prepo:340
+#: mga3prepo:341
 msgid "Delete media"
 msgstr ""
 
-#: mga3prepo:352
+#: mga3prepo:353
 msgid "Press 'enter' to quit, '*' to show all packages"
 msgstr ""
 
-#: mga3prepo:353
+#: mga3prepo:354
 msgid "Enter the name of the package:"
 msgstr ""
