@@ -160,7 +160,9 @@ def add_media():
             print(_('\n *** Added media: ')+media_name+' '+media_url)
             os.remove('synthesis.hdlist.cz')
         else:
-            print(_('\n*** Cannot found media with synthesis in '+newpath+'\n'))
+            print('\n')
+            print(_('*** Cannot found media with synthesis in:'))
+            print(newpath+'\n')
             input()
 
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-10 17:59+0200\n"
+"POT-Creation-Date: 2013-05-11 10:01+0200\n"
 "PO-Revision-Date: 2013-05-10 16:52+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
@@ -77,44 +77,42 @@ msgstr ""
 "\n"
 " *** Dépôt ajouté: "
 
-#: mga3prepo:163
+#: mga3prepo:164
 #, fuzzy
-msgid ""
-"\n"
-"*** Cannot found media with synthesis in "
+msgid "*** Cannot found media with synthesis in:"
 msgstr ""
 "\n"
 "*** Impossible de trouver le dépôt avec \"synthesis\" dans "
 
-#: mga3prepo:174
+#: mga3prepo:176
 msgid "Enter the name of the media to delete (Enter to quit):\n"
 msgstr "Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
 
-#: mga3prepo:179
+#: mga3prepo:181
 msgid "*** The media does n't exist"
 msgstr "*** Le dépôt n'existe pas"
 
-#: mga3prepo:216
+#: mga3prepo:218
 msgid "Empty media list"
 msgstr "La liste des dépôts est vide"
 
-#: mga3prepo:265
+#: mga3prepo:267
 msgid "No suche file "
 msgstr "Fichier non existant "
 
-#: mga3prepo:289
+#: mga3prepo:291
 msgid " in repo: \"{0}\" url: \n"
 msgstr " dans le dépôt: \"{0}\" url: \n"
 
-#: mga3prepo:303
+#: mga3prepo:305
 msgid "Total: "
 msgstr "Total: "
 
-#: mga3prepo:315
+#: mga3prepo:317
 msgid "*** You have to add at least one media first\n"
 msgstr "*** Vous devez d'abord ajouter au moins un dépôt\n"
 
-#: mga3prepo:320
+#: mga3prepo:322
 msgid ""
 "*** No configured media.\n"
 "Launch the script without arguments,                   \n"
@@ -123,22 +121,22 @@ msgstr ""
 "*** Aucun dépôts configurés, Lancez le script sans arguments,               \n"
 "et ajoutez au moins un dépôt depuis le menu «Ajouter un dépôt»\n"
 
-#: mga3prepo:331
+#: mga3prepo:333
 msgid "Search package"
 msgstr "Recherche de paquetage"
 
-#: mga3prepo:332
+#: mga3prepo:334
 msgid "Add media"
 msgstr "Ajouter un dépôt"
 
-#: mga3prepo:333
+#: mga3prepo:335
 msgid "List media"
 msgstr "Afficher les dépôts"
 
-#: mga3prepo:334
+#: mga3prepo:336
 msgid "Delete media"
 msgstr "Supprimer un dépôt"
 
-#: mga3prepo:345
+#: mga3prepo:347
 msgid "Enter the name of the package:\n"
 msgstr "Saisissez le nom du paquetage:\n"
