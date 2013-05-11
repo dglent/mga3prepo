@@ -6,7 +6,7 @@ Summary(fr_FR):	Un script pour rechercher des paquets dans les dépôts supplém
 License:	GPLv3
 Group:		System/Packaging
 Url:		https://github.com/dglent/mga3prepo
-Source0:	%{name}-%{version}.tar.gz
+Source0:	http://glenbox.free.fr/%{name}/%{version}/%{name}-%{version}.tar.gz
 
 BuildArch:	noarch
 
