@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-12 18:01+0200\n"
+"POT-Creation-Date: 2013-05-25 10:09+0200\n"
 "PO-Revision-Date: 2013-05-11 11:06+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -145,6 +145,9 @@ msgstr "Πατήστε «enter» για έξοδο, «*» για εμφάνισ�
 msgid "Enter the name of the package:"
 msgstr "Εισάγετε το όνομα του πακέτου:"
 
+#~ msgid "\" url: "
+#~ msgstr "» url: "
+
 #, fuzzy
 #~ msgid ""
 #~ "*** No configured media.\n"
@@ -154,6 +157,3 @@ msgstr "Εισάγετε το όνομα του πακέτου:"
 #~ "*** Δεν βρέθηκαν ρυθμισμένα αποθετήρια.\n"
 #~ "Εκτελέστε το script χωρίς ορίσματα,\n"
 #~ "και προσθέστε τουλάχιστον ένα μέσο από το μενού «Προσθήκη ενός αποθετηρίου»\n"
-
-#~ msgid "\" url: "
-#~ msgstr "» url: "
