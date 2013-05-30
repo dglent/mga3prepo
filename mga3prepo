@@ -268,7 +268,7 @@ def fetch_synthesis(name):
             decompressed = open(key)
             file_present = True
         except:
-            print(_('No suche file '+key))
+            print(_('No such file '+key))
 
         if file_present:
             for i in decompressed:

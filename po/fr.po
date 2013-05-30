@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-11 11:01+0200\n"
-"PO-Revision-Date: 2013-05-11 11:06+0200\n"
+"POT-Creation-Date: 2013-05-30 21:07+0200\n"
+"PO-Revision-Date: 2013-05-30 21:08+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
 "Language: fr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: mga3prepo:52
 msgid "Here is a list with some of the unofficial media for Mageia(2):"
@@ -95,7 +95,7 @@ msgid "Empty media list"
 msgstr "La liste des dépôts est vide"
 
 #: mga3prepo:271
-msgid "No suche file "
+msgid "No such file "
 msgstr "Fichier non existant "
 
 #: mga3prepo:295
@@ -140,7 +140,9 @@ msgstr "Supprimer un dépôt"
 
 #: mga3prepo:353
 msgid "Press 'enter' to quit, '*' to show all packages"
-msgstr "Appuyez sur 'enter' pour quitter, ou '*' pour afficher tous les paquetages disponibles"
+msgstr ""
+"Appuyez sur 'enter' pour quitter, ou '*' pour afficher tous les paquetages "
+"disponibles"
 
 #: mga3prepo:354
 msgid "Enter the name of the package:"
