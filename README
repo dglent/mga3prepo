@@ -1,6 +1,5 @@
-This script downloads the synthesis files of third party repositories, 
-that you need first to define in the program,
-and search for a package by the given name.
+This script searchs for rpm in third party repositories for Mageia.
+You need first to define the repositories, with the help of the menus in the script.
 
 When you launch the script you will see the follow menu:
 ------------------	
