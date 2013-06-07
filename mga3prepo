@@ -136,6 +136,10 @@ def add_media():
             print(_('*** The media name already exists'))
             input()
             continue
+        if media_name == conf:
+            print(_('*** The media name is invalid'))
+            input()
+            continue
 
         media_url = input(_('Enter media url:\n'))
         if media_url == '':
