@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-30 21:09+0200\n"
+"POT-Creation-Date: 2013-06-09 08:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,19 +57,27 @@ msgstr ""
 msgid "*** The media name already exists"
 msgstr ""
 
+#: mga3prepo:139
+msgid "*** The media name is not valid"
+msgstr ""
+
 #: mga3prepo:140
+msgid "Please choose another one"
+msgstr ""
+
+#: mga3prepo:143
 msgid "Enter media url:\n"
 msgstr ""
 
-#: mga3prepo:142
+#: mga3prepo:145
 msgid "You have to enter an url"
 msgstr ""
 
-#: mga3prepo:148
+#: mga3prepo:150
 msgid "*** The media url already exists"
 msgstr ""
 
-#: mga3prepo:162
+#: mga3prepo:163
 msgid ""
 "\n"
 " *** Added media: "
@@ -79,15 +87,15 @@ msgstr ""
 msgid "*** Cannot found media with synthesis in:"
 msgstr ""
 
-#: mga3prepo:180
+#: mga3prepo:179
 msgid "Enter the name of the media to delete (Enter to quit):\n"
 msgstr ""
 
-#: mga3prepo:185
+#: mga3prepo:184
 msgid "*** The media does n't exist"
 msgstr ""
 
-#: mga3prepo:222
+#: mga3prepo:204
 msgid "Empty media list"
 msgstr ""
 
@@ -99,39 +107,39 @@ msgstr ""
 msgid " in repo: \"{0}\" url: \n"
 msgstr ""
 
-#: mga3prepo:309
+#: mga3prepo:310
 msgid "Total: "
 msgstr ""
 
-#: mga3prepo:321
+#: mga3prepo:322
 msgid "*** You have to add at least one media first\n"
 msgstr ""
 
-#: mga3prepo:326
+#: mga3prepo:327
 msgid "*** No configured media ***"
 msgstr ""
 
-#: mga3prepo:327
+#: mga3prepo:328
 msgid "Launch the script without arguments,"
 msgstr ""
 
-#: mga3prepo:328
+#: mga3prepo:329
 msgid "and add at least one media from the menu 'Add media'"
 msgstr ""
 
-#: mga3prepo:338
+#: mga3prepo:339
 msgid "Search package"
 msgstr ""
 
-#: mga3prepo:339
+#: mga3prepo:340
 msgid "Add media"
 msgstr ""
 
-#: mga3prepo:340
+#: mga3prepo:341
 msgid "List media"
 msgstr ""
 
-#: mga3prepo:341
+#: mga3prepo:342
 msgid "Delete media"
 msgstr ""
 

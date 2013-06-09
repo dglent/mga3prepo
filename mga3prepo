@@ -102,7 +102,7 @@ def make_list_media_name():
 
 
 def make_dict():
-    "Returns a dictionnary with the media"
+    "Returns a dictionnary with the medias"
     media_dict = {}
     try:
         file_c = open(conf,'r')
@@ -133,24 +133,21 @@ def add_media():
             break
             file_c.close()
         if media_name in name_present:
-            print(_('*** The media name already exists'))
-            input()
+            input(_('*** The media name already exists'))
             continue
-        if media_name == conf:
-            print(_('*** The media name is invalid'))
-            input()
+        if media_name == conf or media_name.count('@')>=1:
+            print(_('*** The media name is not valid'))
+            input(_('Please choose another one'))
             continue
 
         media_url = input(_('Enter media url:\n'))
         if media_url == '':
-            print(_('You have to enter an url'))
-            input()
+            input(_('You have to enter an url'))
             continue
         if media_url.endswith('/') == False:
             media_url = media_url+'/'
         if media_url in url_present:
-            print(_('*** The media url already exists'))
-            input()
+            input(_('*** The media url already exists'))
             continue
 
 
@@ -168,10 +165,8 @@ def add_media():
             input()
             os.remove('synthesis.hdlist.cz')
         else:
-            print('\n')
-            print(_('*** Cannot found media with synthesis in:'))
-            print(newpath+'\n')
-            input()
+            print('\n'+_('*** Cannot found media with synthesis in:'))
+            input(newpath)
 
 
 
@@ -186,8 +181,7 @@ def delete_media():
         if name == '':
             break
         if name not in media_d:
-            print(_('*** The media does n\'t exist'))
-            input()
+            input(_('*** The media does n\'t exist'))
             continue
 
         mname = media_d.get(name)
@@ -206,7 +200,8 @@ def delete_media():
 
 
 def list_media():
-    "Parse the configuration file and print a list with the media"
+    "Parse the configuration file and print a list with the medias"
+    empty = _('Empty media list')
     flag_empty = True
     try:
         file_c = open(conf,'r')
@@ -220,10 +215,11 @@ def list_media():
             flag_empty = False
             print(lista[0],lista[1])
         file_c.close()
-
+        if flag_empty == True:
+            print(empty)        
     except:
         if flag_empty == True:
-            print(_('Empty media list'))
+            print(empty)
 
     print('-'*70+'\n')
 
@@ -262,7 +258,7 @@ def fetch_synthesis(name):
                 if counter == len(media_list):
                     times = 2
 
-        #-------------------------------------------------------------------
+        #-----------------------------------------------------------------
         # The same time decompress the downloaded file and add the
         # rpm names in a dictionnary (lista_d) by media
 
@@ -300,7 +296,8 @@ def fetch_synthesis(name):
                               .format(value)+url[:-len(path)]+key+'.rpm'
                 if answer_res in lista1:
                     continue
-                lista1.append(answer_res) # Make a list (lista1) with the results
+                # Make a list (lista1) with the results
+                lista1.append(answer_res) 
 
     count = 0
     print('-'*70+'\n')
@@ -350,8 +347,7 @@ if len(sys.argv) == 1:
         if choice == '1':
             retr_list = make_list_media_url()
             if llength == 0:
-                print(nomedia)
-                input()
+                input(nomedia)
                 continue
             while True:
                 print(_("Press 'enter' to quit, '*' to show all packages"))
@@ -369,13 +365,11 @@ if len(sys.argv) == 1:
             add_media()
         if choice == '3':
             if llength == 0:
-                print(nomedia)
-                input()
+                input(nomedia)
             else:
                 list_media()
         if choice == '4':
             if llength == 0:
-                print(nomedia)
-                input()
+                input(nomedia)
             else:
                 delete_media()
