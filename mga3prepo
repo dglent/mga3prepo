@@ -292,8 +292,7 @@ def fetch_synthesis(name):
 
     for i in range(0, len(lista1)):
         count += 1
-    print(_('Total: '), count)
-    print('\n')
+    print(_('Total: %s\n') % count)
     times = 2
 
 
