@@ -26,15 +26,9 @@ global times
 
 name_cd = '/.mga3prepo'
 conf = 'mga3prepo.conf'
-home = os.getenv('HOME')
 
-
-# Creates config if file does n't exist (eg first launch)
-try:
-    os.chdir(home+name_cd)
-except:
-    os.mkdir(home+name_cd)
-    os.chdir(home+name_cd)
+# Creates config if file does not exist (eg first launch)
+os.makedirs(os.path.expanduser(name_cd), exist_ok=True)
 
 path = 'media_info/synthesis.hdlist.cz'
 
