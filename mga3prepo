@@ -216,7 +216,7 @@ def list_media():
             print(lista[0],lista[1])
         file_c.close()
         if flag_empty == True:
-            print(empty)        
+            print(empty)
     except:
         if flag_empty == True:
             print(empty)
@@ -297,7 +297,7 @@ def fetch_synthesis(name):
                 if answer_res in lista1:
                     continue
                 # Make a list (lista1) with the results
-                lista1.append(answer_res) 
+                lista1.append(answer_res)
 
     count = 0
     print('-'*70+'\n')
@@ -318,58 +318,59 @@ def fetch_synthesis(name):
 
 ### main program ###
 
-llength = len(make_list_media_url())
-nomedia = _('*** You have to add at least one media first\n')
+if __name__ == '__main__':
+    llength = len(make_list_media_url())
+    nomedia = _('*** You have to add at least one media first\n')
 
-# If the script has an argument
-if len(sys.argv) > 1:
-    if llength == 0:
-        print(_("*** No configured media ***"))
-        print(_('Launch the script without arguments,'))
-        print(_("and add at least one media from the menu 'Add media'"))
-    else:
-        times = 0
-        fetch_synthesis(sys.argv[1])
+    # If the script has an argument
+    if len(sys.argv) > 1:
+        if llength == 0:
+            print(_("*** No configured media ***"))
+            print(_('Launch the script without arguments,'))
+            print(_("and add at least one media from the menu 'Add media'"))
+        else:
+            times = 0
+            fetch_synthesis(sys.argv[1])
 
-# If the script does not have any argument
-if len(sys.argv) == 1:
-    times = 1
+    # If the script does not have any argument
+    if len(sys.argv) == 1:
+        times = 1
 
-    while True:
-        print('1 - '+_('Search package'))
-        print('2 - '+_('Add media'))
-        print('3 - '+_('List media'))
-        print('4 - '+_('Delete media'))
+        while True:
+            print('1 - '+_('Search package'))
+            print('2 - '+_('Add media'))
+            print('3 - '+_('List media'))
+            print('4 - '+_('Delete media'))
 
-        choice = input()
-        if choice == '':
-            break
-        if choice == '1':
-            retr_list = make_list_media_url()
-            if llength == 0:
-                input(nomedia)
-                continue
-            while True:
-                print(_("Press 'enter' to quit, '*' to show all packages"))
-                print(_('Enter the name of the package:'))
-                name = input()
-                print('\n')
-                if name == '':
-                    break
-                if name == '*':
-                    name = ''
-                fetch_synthesis(name)
+            choice = input()
+            if choice == '':
+                break
+            if choice == '1':
+                retr_list = make_list_media_url()
+                if llength == 0:
+                    input(nomedia)
+                    continue
+                while True:
+                    print(_("Press 'enter' to quit, '*' to show all packages"))
+                    print(_('Enter the name of the package:'))
+                    name = input()
+                    print('\n')
+                    if name == '':
+                        break
+                    if name == '*':
+                        name = ''
+                    fetch_synthesis(name)
 
 
-        if choice == '2':
-            add_media()
-        if choice == '3':
-            if llength == 0:
-                input(nomedia)
-            else:
-                list_media()
-        if choice == '4':
-            if llength == 0:
-                input(nomedia)
-            else:
-                delete_media()
+            if choice == '2':
+                add_media()
+            if choice == '3':
+                if llength == 0:
+                    input(nomedia)
+                else:
+                    list_media()
+            if choice == '4':
+                if llength == 0:
+                    input(nomedia)
+                else:
+                    delete_media()
