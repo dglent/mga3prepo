@@ -29,7 +29,6 @@ conf = 'mga3prepo.conf'
 home = os.getenv('HOME')
 
 
-
 # Creates config if file does n't exist (eg first launch)
 try:
     os.chdir(home+name_cd)
@@ -37,9 +36,7 @@ except:
     os.mkdir(home+name_cd)
     os.chdir(home+name_cd)
 
-
-
-path='media_info/synthesis.hdlist.cz'
+path = 'media_info/synthesis.hdlist.cz'
 
 # -----i18n----------------
 __trans = gettext.translation('mga3prepo', fallback=True)
@@ -82,7 +79,6 @@ def info():
     input()
 
 
-
 def make_list_media_url():
     "Returns a list with the url of the medias"
     lista = []
@@ -105,7 +101,7 @@ def make_dict():
     "Returns a dictionnary with the medias"
     media_dict = {}
     try:
-        file_c = open(conf,'r')
+        file_c = open(conf, 'r')
         for i in file_c:
             pedio = i.rstrip('\n').split('@')
             media_dict[pedio[0]] = pedio[1]
@@ -115,14 +111,13 @@ def make_dict():
         return media_dict
 
 
-
 def add_media():
     "Add a media in the list"
 
     while True:
         name_present = make_list_media_name()
         url_present = make_list_media_url()
-        file_c = open(conf,'a')
+        file_c = open(conf, 'a')
         list_media()
 
         media_name = input(_('Enter media name (Enter to quit or * for info):\n'))
@@ -135,7 +130,7 @@ def add_media():
         if media_name in name_present:
             input(_('*** The media name already exists'))
             continue
-        if media_name == conf or media_name.count('@')>=1:
+        if media_name == conf or media_name.count('@') >= 1:
             print(_('*** The media name is not valid'))
             input(_('Please choose another one'))
             continue
@@ -144,17 +139,15 @@ def add_media():
         if media_url == '':
             input(_('You have to enter an url'))
             continue
-        if media_url.endswith('/') == False:
+        if media_url.endswith('/') is False:
             media_url = media_url+'/'
         if media_url in url_present:
             input(_('*** The media url already exists'))
             continue
 
-
-
         # The url of the synthesis
         newpath = media_url+path
-        subprocess.call(['wget', '--timeout=10','--tries=1',newpath])
+        subprocess.call(['wget', '--timeout=10', '--tries=1', newpath])
 
         if os.path.exists('synthesis.hdlist.cz'):
             media = (media_name+'@'+newpath+'\n')
@@ -169,10 +162,9 @@ def add_media():
             input(newpath)
 
 
-
 def delete_media():
     media_d = make_dict()
-    file_c = open(conf,'r')
+    file_c = open(conf, 'r')
 
     while True:
         list_media()
@@ -185,16 +177,15 @@ def delete_media():
             continue
 
         mname = media_d.get(name)
-        media_in_conf = name+'@'+mname
+        media_in_conf = name + '@' + mname
 
-
-        file_c = open(conf,'r')
+        file_c = open(conf, 'r')
         lines = file_c.readlines()
         file_c.close()
-        file_c = open(conf,'w')
+        file_c = open(conf, 'w')
 
         for line in lines:
-            if line != media_in_conf+"\n":
+            if line != media_in_conf + "\n":
                 file_c.write(line)
         file_c.close()
 
@@ -204,8 +195,8 @@ def list_media():
     empty = _('Empty media list')
     flag_empty = True
     try:
-        file_c = open(conf,'r')
-        print('-'*70+'\n')
+        file_c = open(conf, 'r')
+        print('-' * 70 + '\n')
 
         while True:
             lista = file_c.readline()
@@ -213,12 +204,12 @@ def list_media():
                 break
             lista = lista.split('@')
             flag_empty = False
-            print(lista[0],lista[1])
+            print(lista[0], lista[1])
         file_c.close()
-        if flag_empty == True:
+        if flag_empty is True:
             print(empty)
     except:
-        if flag_empty == True:
+        if flag_empty is True:
             print(empty)
 
     print('-'*70+'\n')
@@ -239,18 +230,18 @@ def fetch_synthesis(name):
 
         # Download the synthesis only one time
         if times <= 1:
-            newfile = key+'.gz'
-            subprocess.call(['wget','--timeout=10','--tries=1','-O', newfile,value])
+            newfile = key + '.gz'
+            subprocess.call(['wget', '--timeout=10', '--tries=1', '-O', newfile, value])
 
             #Exctract synthesis according the compression type
             cmd = ['file', newfile]
-            output = subprocess.Popen( cmd, stdout=subprocess.PIPE ).communicate()[0]
+            output = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
             output = str(output, 'utf-8')
 
             if output.count('gzip') >= 1:
-                subprocess.call(['gzip','-d','-f', newfile])
+                subprocess.call(['gzip', '-d', '-f', newfile])
             if output.count('XZ') >= 1:
-                subprocess.call(['xz','-f','--decompress','-S', '.gz',newfile])
+                subprocess.call(['xz', '-f', '--decompress', '-S', '.gz', newfile])
 
             # After the first download of the synthesis files
             # don't download them again, to make rpm searches faster
@@ -293,7 +284,7 @@ def fetch_synthesis(name):
         if lkey.count(lname) >= 1:
                 answer_res = '*** ' + name
                 answer_res += _(' in repo: "{0}" url: \n')\
-                              .format(value)+url[:-len(path)]+key+'.rpm'
+                                .format(value)+url[:-len(path)]+key+'.rpm'
                 if answer_res in lista1:
                     continue
                 # Make a list (lista1) with the results
@@ -302,12 +293,12 @@ def fetch_synthesis(name):
     count = 0
     print('-'*70+'\n')
     for i in lista1:
-        print(i,'\n')
+        print(i, '\n')
     print('-'*70)
 
     for i in range(0, len(lista1)):
         count += 1
-    print(_('Total: '),count)
+    print(_('Total: '), count)
     print('\n')
     times = 2
 
@@ -317,7 +308,6 @@ def fetch_synthesis(name):
 
 
 ### main program ###
-
 if __name__ == '__main__':
     llength = len(make_list_media_url())
     nomedia = _('*** You have to add at least one media first\n')
@@ -360,7 +350,6 @@ if __name__ == '__main__':
                     if name == '*':
                         name = ''
                     fetch_synthesis(name)
-
 
             if choice == '2':
                 add_media()
