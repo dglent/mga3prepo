@@ -100,11 +100,15 @@ def make_list_media_name():
 def make_dict():
     "Returns a dictionnary with the medias"
     media_dict = {}
-    with open(conf, 'r') as file_c:
+    try:
+        file_c = open(conf, 'r')
         for i in file_c:
             pedio = i.rstrip('\n').split('@')
             media_dict[pedio[0]] = pedio[1]
-    return media_dict
+        file_c.close()
+        return media_dict
+    except:
+        return media_dict
 
 
 def add_media():
@@ -296,6 +300,10 @@ def fetch_synthesis(name):
         count += 1
     print(_('Total: %s\n') % count)
     times = 2
+
+
+
+
 
 
 ### main program ###
