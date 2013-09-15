@@ -101,11 +101,10 @@ def make_dict():
     "Returns a dictionnary with the medias"
     media_dict = {}
     try:
-        file_c = open(conf, 'r')
-        for i in file_c:
-            pedio = i.rstrip('\n').split('@')
-            media_dict[pedio[0]] = pedio[1]
-        file_c.close()
+        with open(conf, 'r') as file_c:
+            for i in file_c:
+                pedio = i.rstrip('\n').split('@')
+                media_dict[pedio[0]] = pedio[1]
         return media_dict
     except:
         return media_dict
@@ -195,17 +194,16 @@ def list_media():
     empty = _('Empty media list')
     flag_empty = True
     try:
-        file_c = open(conf, 'r')
-        print('-' * 70 + '\n')
+        with open(conf, 'r') as file_c:
+            print('-' * 70 + '\n')
 
-        while True:
-            lista = file_c.readline()
-            if lista == '':
-                break
-            lista = lista.split('@')
-            flag_empty = False
-            print(lista[0], lista[1])
-        file_c.close()
+            while True:
+                lista = file_c.readline()
+                if lista == '':
+                    break
+                lista = lista.split('@')
+                flag_empty = False
+                print(lista[0], lista[1])
         if flag_empty is True:
             print(empty)
     except:
