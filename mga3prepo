@@ -271,7 +271,9 @@ def fetch_synthesis(name):
                     rpmname = pedio.pop(1)
                     lista_d[rpmname] = key
 
-        decompressed.close()
+        # if for some reason the downloaded files are deleted or missing:
+        if file_present:
+            decompressed.close()
         #-----------------------------------------------------------------
     url = ""
     answer_res = ""
@@ -298,7 +300,7 @@ def fetch_synthesis(name):
 
     for i in range(0, len(lista1)):
         count += 1
-    print(_('Total: %s\n') % count)
+    print(_('Total: {0}\n').format(count))
     times = 2
 
 
