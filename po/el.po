@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-16 17:27+0200\n"
-"PO-Revision-Date: 2013-09-16 17:26+0200\n"
+"POT-Creation-Date: 2013-09-16 17:53+0200\n"
+"PO-Revision-Date: 2013-09-16 17:52+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -105,9 +105,17 @@ msgstr "Η λίστα των αποθετηρίων είναι άδεια"
 msgid "No such file "
 msgstr "Δεν υπάρχει το αρχείο "
 
+#: mga3prepo:285
+msgid "Found"
+msgstr "Εύρεση του"
+
 #: mga3prepo:286
-msgid " in repo: \"{0}\" url: \n"
-msgstr " στο αποθετήριο: «{0}» url: \n"
+msgid "in repo:"
+msgstr "στο αποθετήριο:"
+
+#: mga3prepo:286
+msgid "url:"
+msgstr "url:"
 
 #: mga3prepo:301
 msgid "Total:"
@@ -153,6 +161,9 @@ msgstr "Πατήστε «enter» για έξοδο, «*» για εμφάνισ�
 msgid "Enter the name of the package:"
 msgstr "Εισάγετε το όνομα του πακέτου:"
 
+#~ msgid " in repo: \"{0}\" url: \n"
+#~ msgstr " στο αποθετήριο: «{0}» url: \n"
+
 #, fuzzy
 #~ msgid ""
 #~ "*** No configured media.\n"
@@ -162,6 +173,3 @@ msgstr "Εισάγετε το όνομα του πακέτου:"
 #~ "*** Δεν βρέθηκαν ρυθμισμένα αποθετήρια.\n"
 #~ "Εκτελέστε το script χωρίς ορίσματα,\n"
 #~ "και προσθέστε τουλάχιστον ένα μέσο από το μενού «Προσθήκη ενός αποθετηρίου»\n"
-
-#~ msgid "\" url: "
-#~ msgstr "» url: "
