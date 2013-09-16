@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-09 08:25+0200\n"
+"POT-Creation-Date: 2013-09-16 17:18+0200\n"
 "PO-Revision-Date: 2013-05-30 21:08+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
@@ -17,68 +17,68 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: mga3prepo:52
+#: mga3prepo:49
 msgid "Here is a list with some of the unofficial media for Mageia(2):"
 msgstr "Voici une liste avec quelques dépôts non officiels pour Mageia (2):"
 
-#: mga3prepo:53
+#: mga3prepo:50
 msgid "See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
 msgstr "Voir aussi: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
 
-#: mga3prepo:54
+#: mga3prepo:51
 msgid "1. Czech Republic"
 msgstr "1. République Tchèque"
 
-#: mga3prepo:57
+#: mga3prepo:54
 msgid "2. Russia"
 msgstr "2. Russie"
 
-#: mga3prepo:61
+#: mga3prepo:58
 msgid "3. Greece"
 msgstr "3. Grèce"
 
-#: mga3prepo:65
+#: mga3prepo:62
 msgid "4. Poland"
 msgstr "4. Pologne"
 
-#: mga3prepo:68
+#: mga3prepo:65
 msgid "5. Spain"
 msgstr "5. Espagne"
 
-#: mga3prepo:75
+#: mga3prepo:72
 msgid "6. France"
 msgstr "6. France"
 
-#: mga3prepo:128
+#: mga3prepo:122
 msgid "Enter media name (Enter to quit or * for info):\n"
 msgstr "Saisissez le nom du dépôt (\"Enter\" pour quitter ou * pour info):\n"
 
-#: mga3prepo:136
+#: mga3prepo:130
 msgid "*** The media name already exists"
 msgstr "*** Le nom du dépôt existe déjà"
 
-#: mga3prepo:139
+#: mga3prepo:133
 #, fuzzy
 msgid "*** The media name is not valid"
 msgstr "*** Le dépôt n'existe pas"
 
-#: mga3prepo:140
+#: mga3prepo:134
 msgid "Please choose another one"
 msgstr ""
 
-#: mga3prepo:143
+#: mga3prepo:137
 msgid "Enter media url:\n"
 msgstr "Saisissez l'url du dépôt:\n"
 
-#: mga3prepo:145
+#: mga3prepo:139
 msgid "You have to enter an url"
 msgstr "Vous devez saisir une url"
 
-#: mga3prepo:150
+#: mga3prepo:144
 msgid "*** The media url already exists"
 msgstr "*** L'url du dépôt existe déjà"
 
-#: mga3prepo:163
+#: mga3prepo:155
 msgid ""
 "\n"
 " *** Added media: "
@@ -86,71 +86,72 @@ msgstr ""
 "\n"
 " *** Dépôt ajouté: "
 
-#: mga3prepo:168
+#: mga3prepo:160
 msgid "*** Cannot found media with synthesis in:"
 msgstr "*** Impossible de trouver le dépôt avec \"synthesis\" dans:"
 
-#: mga3prepo:179
+#: mga3prepo:170
 msgid "Enter the name of the media to delete (Enter to quit):\n"
 msgstr "Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
 
-#: mga3prepo:184
+#: mga3prepo:175
 msgid "*** The media does n't exist"
 msgstr "*** Le dépôt n'existe pas"
 
-#: mga3prepo:204
+#: mga3prepo:194
 msgid "Empty media list"
 msgstr "La liste des dépôts est vide"
 
-#: mga3prepo:271
+#: mga3prepo:260
 msgid "No such file "
 msgstr "Fichier non existant "
 
-#: mga3prepo:295
+#: mga3prepo:286
 msgid " in repo: \"{0}\" url: \n"
 msgstr " dans le dépôt: \"{0}\" url: \n"
 
-#: mga3prepo:310
-msgid "Total: "
+#: mga3prepo:301
+#, fuzzy
+msgid "Total: {0}\n"
 msgstr "Total: "
 
-#: mga3prepo:322
+#: mga3prepo:312
 msgid "*** You have to add at least one media first\n"
 msgstr "*** Vous devez d'abord ajouter au moins un dépôt\n"
 
-#: mga3prepo:327
+#: mga3prepo:317
 msgid "*** No configured media ***"
 msgstr "*** Aucun dépôts configurés ***"
 
-#: mga3prepo:328
+#: mga3prepo:318
 msgid "Launch the script without arguments,"
 msgstr "Lancez le script sans arguments,"
 
-#: mga3prepo:329
+#: mga3prepo:319
 msgid "and add at least one media from the menu 'Add media'"
 msgstr "et ajoutez au moins un dépôt depuis le menu « Ajouter un dépôt »"
 
-#: mga3prepo:339
+#: mga3prepo:329
 msgid "Search package"
 msgstr "Recherche de paquetage"
 
-#: mga3prepo:340
+#: mga3prepo:330
 msgid "Add media"
 msgstr "Ajouter un dépôt"
 
-#: mga3prepo:341
+#: mga3prepo:331
 msgid "List media"
 msgstr "Afficher les dépôts"
 
-#: mga3prepo:342
+#: mga3prepo:332
 msgid "Delete media"
 msgstr "Supprimer un dépôt"
 
-#: mga3prepo:353
+#: mga3prepo:343
 msgid "Press 'enter' to quit, '*' to show all packages"
 msgstr "Appuyez sur 'enter' pour quitter, ou '*' pour afficher tous les paquetages disponibles"
 
-#: mga3prepo:354
+#: mga3prepo:344
 msgid "Enter the name of the package:"
 msgstr "Saisissez le nom du paquetage:"
 
