@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-16 17:18+0200\n"
-"PO-Revision-Date: 2013-06-09 08:26+0200\n"
+"POT-Creation-Date: 2013-09-16 17:27+0200\n"
+"PO-Revision-Date: 2013-09-16 17:26+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -110,9 +110,8 @@ msgid " in repo: \"{0}\" url: \n"
 msgstr " στο αποθετήριο: «{0}» url: \n"
 
 #: mga3prepo:301
-#, fuzzy
-msgid "Total: {0}\n"
-msgstr "Σύνολο: "
+msgid "Total:"
+msgstr "Σύνολο:"
 
 #: mga3prepo:312
 msgid "*** You have to add at least one media first\n"

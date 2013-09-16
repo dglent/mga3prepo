@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-16 17:18+0200\n"
-"PO-Revision-Date: 2013-05-30 21:08+0200\n"
+"POT-Creation-Date: 2013-09-16 17:25+0200\n"
+"PO-Revision-Date: 2013-09-16 17:27+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
 "Language: fr\n"
@@ -92,7 +92,8 @@ msgstr "*** Impossible de trouver le dépôt avec \"synthesis\" dans:"
 
 #: mga3prepo:170
 msgid "Enter the name of the media to delete (Enter to quit):\n"
-msgstr "Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
+msgstr ""
+"Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
 
 #: mga3prepo:175
 msgid "*** The media does n't exist"
@@ -111,9 +112,8 @@ msgid " in repo: \"{0}\" url: \n"
 msgstr " dans le dépôt: \"{0}\" url: \n"
 
 #: mga3prepo:301
-#, fuzzy
-msgid "Total: {0}\n"
-msgstr "Total: "
+msgid "Total:"
+msgstr "Total:"
 
 #: mga3prepo:312
 msgid "*** You have to add at least one media first\n"
@@ -149,7 +149,9 @@ msgstr "Supprimer un dépôt"
 
 #: mga3prepo:343
 msgid "Press 'enter' to quit, '*' to show all packages"
-msgstr "Appuyez sur 'enter' pour quitter, ou '*' pour afficher tous les paquetages disponibles"
+msgstr ""
+"Appuyez sur 'enter' pour quitter, ou '*' pour afficher tous les paquetages "
+"disponibles"
 
 #: mga3prepo:344
 msgid "Enter the name of the package:"
