@@ -282,13 +282,13 @@ def fetch_synthesis(name):
         lkey = key.lower()
         lname = name.lower()
         if lkey.count(lname) >= 1:
-                answer_res = _('Found')+ ' ' + name 
-                answer_res += ' '+(_('in repo:')+(' "{0}" ')+_('url:')+' \n')\
-                                .format(value)+url[:-len(path)]+key+'.rpm'
-                if answer_res in lista1:
-                    continue
-                # Make a list (lista1) with the results
-                lista1.append(answer_res)
+            answer_res = _('Found')+ ' ' + name 
+            answer_res += ' '+(_('in repo:')+(' "{0}" ')+_('url:')+' \n')\
+                .format(value)+url[:-len(path)]+key+'.rpm'
+            if answer_res in lista1:
+                continue
+            # Make a list (lista1) with the results
+            lista1.append(answer_res)
 
     count = 0
     print('-'*70+'\n')
