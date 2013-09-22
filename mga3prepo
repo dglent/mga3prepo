@@ -21,343 +21,356 @@ import subprocess
 import gettext
 import sys
 
-global times
+class Mga3prepo(object):
+    def __init__(self):
+        
+        # -----i18n----------------
+        __trans = gettext.translation('mga3prepo', fallback=True)
+        self._ = __trans.gettext
+        #---------------------------
+        
+        self.name_cd = '/.mga3prepo'
+        self.conf = 'mga3prepo.conf'
+        self.home = os.getenv('HOME')
+        self.path = 'media_info/synthesis.hdlist.cz'
+        self.nomedia = self._('*** You have to add at least one media first\n')
 
-name_cd = '/.mga3prepo'
-conf = 'mga3prepo.conf'
-home = os.getenv('HOME')
-
-
-# Creates config if file does n't exist (eg first launch)
-try:
-    os.chdir(home+name_cd)
-except:
-    os.mkdir(home+name_cd)
-    os.chdir(home+name_cd)
-
-path = 'media_info/synthesis.hdlist.cz'
-
-# -----i18n----------------
-__trans = gettext.translation('mga3prepo', fallback=True)
-_ = __trans.gettext
-
-#---------------------------
-
-
-def info():
-    print(_('Here is a list with some of the unofficial media for Mageia(2):'))
-    print(_('See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985'))
-    print(_('1. Czech Republic'))
-    print('http://petos.cz/rpm/mageia/2/i586/')
-    print('http://petos.cz/rpm/mageia/2/x86_64/')
-    print(_('2. Russia'))
-    print('http://packages.mageialinux.ru/mageia2/RPMS/i586/')
-    print('http://packages.mageialinux.ru/mageia2/RPMS/x86_64/')
-    print('http://packages.mageialinux.ru/mageia2/RPMS/noarch/')
-    print(_('3. Greece'))
-    print('http://www.mageia-gr.org/rpm/2/i586/')
-    print('http://www.mageia-gr.org/rpm/2/x86_64/')
-    print('http://www.mageia-gr.org/rpm/2/noarch/')
-    print(_('4. Poland'))
-    print('http://repo.mageia.org.pl/2/i586/')
-    print('http://repo.mageia.org.pl/2/x86_64/')
-    print(_('5. Spain'))
-    print('http://ftp.blogdrake.net/mageia/mageia2/free/i586/')
-    print('http://ftp.blogdrake.net/mageia/mageia2/free/x86_64/')
-    print('http://ftp.blogdrake.net/mageia/mageia2/free/noarch/')
-    print('http://ftp.blogdrake.net/mageia/mageia2/non-free/i586/')
-    print('http://ftp.blogdrake.net/mageia/mageia2/non-free/x86_64/')
-    print('http://ftp.blogdrake.net/mageia/mageia2/non-free/noarch/')
-    print(_('6. France'))
-    print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/i586/core/')
-    print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/i586/nonfree/')
-    print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/i586/tainted/')
-    print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/core/')
-    print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/nonfree/')
-    print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/tainted/\n')
-    input()
-
-
-def make_list_media_url():
-    "Returns a list with the url of the medias"
-    lista = []
-    dico = make_dict()
-    for (key, value) in dico.items():
-        lista.append(value[:-len(path)])
-    return lista
-
-
-def make_list_media_name():
-    "Returns a list with the names of the medias"
-    lista = []
-    dico = make_dict()
-    for (key, value) in dico.items():
-        lista.append(key)
-    return lista
-
-
-def make_dict():
-    "Returns a dictionnary with the medias"
-    media_dict = {}
-    try:
-        with open(conf, 'r') as file_c:
-            for i in file_c:
-                pedio = i.rstrip('\n').split('@')
-                media_dict[pedio[0]] = pedio[1]
-        return media_dict
-    except:
-        return media_dict
-
-
-def add_media():
-    "Add a media in the list"
-
-    while True:
-        name_present = make_list_media_name()
-        url_present = make_list_media_url()
-        file_c = open(conf, 'a')
-        list_media()
-
-        media_name = input(_('Enter media name (Enter to quit or * for info):\n'))
-        if media_name == '*':
-            info()
-            continue
-        if media_name == '':
-            break
-            file_c.close()
-        if media_name in name_present:
-            input(_('*** The media name already exists'))
-            continue
-        if media_name == conf or media_name.count('@') >= 1:
-            print(_('*** The media name is not valid'))
-            input(_('Please choose another one'))
-            continue
-
-        media_url = input(_('Enter media url:\n'))
-        if media_url == '':
-            input(_('You have to enter an url'))
-            continue
-        if media_url.endswith('/') is False:
-            media_url = media_url+'/'
-        if media_url in url_present:
-            input(_('*** The media url already exists'))
-            continue
-
-        # The url of the synthesis
-        newpath = media_url+path
-        subprocess.call(['wget', '--timeout=10', '--tries=1', newpath])
-
-        if os.path.exists('synthesis.hdlist.cz'):
-            media = (media_name+'@'+newpath+'\n')
-            file_c.write(media)
-            file_c.close()
-            print(_('\n *** Added media: ')+media_name)
-            print(media_url)
-            input()
-            os.remove('synthesis.hdlist.cz')
-        else:
-            print('\n'+_('*** Cannot found media with synthesis in:'))
-            input(newpath)
-
-
-def delete_media():
-    media_d = make_dict()
-    file_c = open(conf, 'r')
-
-    while True:
-        list_media()
-        name = input(_('Enter the name of the media to delete (Enter to quit):\n'))
-
-        if name == '':
-            break
-        if name not in media_d:
-            input(_('*** The media does n\'t exist'))
-            continue
-
-        mname = media_d.get(name)
-        media_in_conf = name + '@' + mname
-
-        file_c = open(conf, 'r')
-        lines = file_c.readlines()
-        file_c.close()
-        file_c = open(conf, 'w')
-
-        for line in lines:
-            if line != media_in_conf + "\n":
-                file_c.write(line)
-        file_c.close()
-
-
-def list_media():
-    "Parse the configuration file and print a list with the medias"
-    empty = _('Empty media list')
-    flag_empty = True
-    try:
-        with open(conf, 'r') as file_c:
-            print('-' * 70 + '\n')
-
-            while True:
-                lista = file_c.readline()
-                if lista == '':
-                    break
-                lista = lista.split('@')
-                flag_empty = False
-                print(lista[0], lista[1])
-        if flag_empty is True:
-            print(empty)
-    except:
-        if flag_empty is True:
-            print(empty)
-
-    print('-'*70+'\n')
-
-
-def fetch_synthesis(name):
-    "Download the synthesis files and search by given name"
-
-    global times
-    media_list = make_dict()
-    lista1 = []
-    lista_d = {}
-    counter = 0
-
-    # Download the synthesis.hdlist.cz for each repo and save it with .gz suffix
-    for (key, value) in media_list.items():
-        counter += 1
-
-        # Download the synthesis only one time
-        if times <= 1:
-            newfile = key + '.gz'
-            subprocess.call(['wget', '--timeout=10', '--tries=1', '-O', newfile, value])
-
-            #Exctract synthesis according the compression type
-            cmd = ['file', newfile]
-            output = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
-            output = str(output, 'utf-8')
-
-            if output.count('gzip') >= 1:
-                subprocess.call(['gzip', '-d', '-f', newfile])
-            if output.count('XZ') >= 1:
-                subprocess.call(['xz', '-f', '--decompress', '-S', '.gz', newfile])
-
-            # After the first download of the synthesis files
-            # don't download them again, to make rpm searches faster
-            if times == 1:
-                if counter == len(media_list):
-                    times = 2
-
-        #-----------------------------------------------------------------
-        # The same time decompress the downloaded file and add the
-        # rpm names in a dictionnary (lista_d) by media
-
-        file_present = False
-
+        # Creates config if file does n't exist (eg first launch)
         try:
-            decompressed = open(key)
-            file_present = True
+            os.chdir(self.home+self.name_cd)
         except:
-            print(_('No such file ')+key)
-
-        if file_present:
-            for i in decompressed:
-                pedio = i.rstrip('\n').split('@')[1:]
-                if pedio[0] == 'info':
-                    # Keep only the field with the name of the rpm
-                    # Make a dictionnary {name of rpm: name of media}
-                    # to use it below for finding the repo of the rpm
-                    rpmname = pedio.pop(1)
-                    lista_d[rpmname] = key
-
-        # if for some reason the downloaded files are deleted or missing:
-        if file_present:
-            decompressed.close()
-        #-----------------------------------------------------------------
-    url = ""
-    answer_res = ""
-
-    # Now we search if any rpm name matches
-    for (key, value) in lista_d.items():
-        url = media_list.get(value)
-        lkey = key.lower()
-        lname = name.lower()
-        if lkey.count(lname) >= 1:
-            answer_res = _('Found')+ ' ' + name 
-            answer_res += ' '+(_('in repo:')+(' "{0}" ')+_('url:')+' \n')\
-                .format(value)+url[:-len(path)]+key+'.rpm'
-            if answer_res in lista1:
-                continue
-            # Make a list (lista1) with the results
-            lista1.append(answer_res)
-
-    count = 0
-    print('-'*70+'\n')
-    for i in lista1:
-        print(i, '\n')
-    print('-'*70)
-
-    for i in range(0, len(lista1)):
-        count += 1
-    print(_('Total:')+(' {0}\n').format(count))
-    times = 2
+            os.mkdir(self.home+self.name_cd)
+            os.chdir(self.home+self.name_cd)
 
 
+    def info(self):
+        print(self._('Here is a list with some of the unofficial media for Mageia(2):'))
+        print(self._('See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985'))
+        print(self._('1. Czech Republic'))
+        print('http://petos.cz/rpm/mageia/2/i586/')
+        print('http://petos.cz/rpm/mageia/2/x86_64/')
+        print(self._('2. Russia'))
+        print('http://packages.mageialinux.ru/mageia2/RPMS/i586/')
+        print('http://packages.mageialinux.ru/mageia2/RPMS/x86_64/')
+        print('http://packages.mageialinux.ru/mageia2/RPMS/noarch/')
+        print(self._('3. Greece'))
+        print('http://www.mageia-gr.org/rpm/2/i586/')
+        print('http://www.mageia-gr.org/rpm/2/x86_64/')
+        print('http://www.mageia-gr.org/rpm/2/noarch/')
+        print(self._('4. Poland'))
+        print('http://repo.mageia.org.pl/2/i586/')
+        print('http://repo.mageia.org.pl/2/x86_64/')
+        print(self._('5. Spain'))
+        print('http://ftp.blogdrake.net/mageia/mageia2/free/i586/')
+        print('http://ftp.blogdrake.net/mageia/mageia2/free/x86_64/')
+        print('http://ftp.blogdrake.net/mageia/mageia2/free/noarch/')
+        print('http://ftp.blogdrake.net/mageia/mageia2/non-free/i586/')
+        print('http://ftp.blogdrake.net/mageia/mageia2/non-free/x86_64/')
+        print('http://ftp.blogdrake.net/mageia/mageia2/non-free/noarch/')
+        print(self._('6. France'))
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/i586/core/')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/i586/nonfree/')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/i586/tainted/')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/core/')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/nonfree/')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/tainted/\n')
+        input()
 
 
+    def make_list_media_url(self):
+        "Returns a list with the url of the medias"
+        lista = []
+        dico = self.make_dict()
+        for (key, value) in dico.items():
+            lista.append(value[:-len(self.path)])
+        return lista
 
 
-### main program ###
-if __name__ == '__main__':
-    llength = len(make_list_media_url())
-    nomedia = _('*** You have to add at least one media first\n')
+    def make_list_media_name(self):
+        "Returns a list with the names of the medias"
+        lista = []
+        dico = self.make_dict()
+        for (key, value) in dico.items():
+            lista.append(key)
+        return lista
 
-    # If the script has an argument
-    if len(sys.argv) > 1:
-        if llength == 0:
-            print(_("*** No configured media ***"))
-            print(_('Launch the script without arguments,'))
-            print(_("and add at least one media from the menu 'Add media'"))
-        else:
-            times = 0
-            fetch_synthesis(sys.argv[1])
 
-    # If the script does not have any argument
-    if len(sys.argv) == 1:
-        times = 1
+    def make_dict(self):
+        "Returns a dictionnary with the medias"
+        media_dict = {}
+        try:
+            with open(self.conf, 'r') as file_c:
+                for i in file_c:
+                    pedio = i.rstrip('\n').split('@')
+                    media_dict[pedio[0]] = pedio[1]
+            return media_dict
+        except:
+            return media_dict
 
+
+    def add_media(self):
+        "Add a media in the list"
         while True:
-            print('1 - '+_('Search package'))
-            print('2 - '+_('Add media'))
-            print('3 - '+_('List media'))
-            print('4 - '+_('Delete media'))
+            name_present = self.make_list_media_name()
+            url_present = self.make_list_media_url()
+            file_c = open(self.conf, 'a')
+            self.list_media()
+
+            media_name = input(self._('Enter media name (Enter to quit or * for info):\n'))
+            if media_name == '*':
+                self.info()
+                continue
+            if media_name == '':
+                break
+                file_c.close()
+            if media_name in name_present:
+                input(self._('*** The media name already exists'))
+                continue
+            if media_name == self.conf or media_name.count('@') >= 1:
+                print(self._("The name cannot include the key character '@'"))
+                input(self._('Please choose another one'))
+                continue
+    
+            media_url = input(self._('Enter media url:\n'))
+            if media_url == '':
+                input(self._('You have to enter an url'))
+                continue
+            if media_url.endswith('/') is False:
+                media_url = media_url+'/'
+            if media_url in url_present:
+                input(self._('*** The media url already exists'))
+                continue
+    
+            # The url of the synthesis
+            newpath = media_url+self.path
+            subprocess.call(['wget', '--timeout=10', '--tries=1', newpath])
+    
+            if os.path.exists('synthesis.hdlist.cz'):
+                media = (media_name+'@'+newpath+'\n')
+                file_c.write(media)
+                file_c.close()
+                print(self._('\n *** Added media: ')+media_name)
+                print(media_url)
+                input()
+                os.remove('synthesis.hdlist.cz')
+            else:
+                print('\n' + self._('*** Cannot found media with synthesis in:'))
+                input(newpath)
+
+
+    def delete_media(self):
+        "Delete a media from the configuration file"
+        media_d = self.make_dict()
+        file_c = open(self.conf, 'r')
+    
+        while True:
+            self.list_media()
+            name = input(self._('Enter the name of the media to delete (Enter to quit):\n'))
+    
+            if name == '':
+                break
+            if name not in media_d:
+                input(self._('*** The media does n\'t exist'))
+                continue
+    
+            mname = media_d.get(name)
+            media_in_conf = name + '@' + mname
+    
+            file_c = open(self.conf, 'r')
+            lines = file_c.readlines()
+            file_c.close()
+            file_c = open(self.conf, 'w')
+    
+            for line in lines:
+                if line != media_in_conf + "\n":
+                    file_c.write(line)
+            file_c.close()
+
+
+    def list_media(self):
+        "Parse the configuration file and print a list with the medias"
+        empty = self._('Empty media list')
+        flag_empty = True
+        try:
+            with open(self.conf, 'r') as file_c:
+                print('-' * 70 + '\n')
+    
+                while True:
+                    lista = file_c.readline()
+                    if lista == '':
+                        break
+                    lista = lista.split('@')
+                    flag_empty = False
+                    print(lista[0], lista[1])
+            if flag_empty is True:
+                print(empty)
+        except:
+            if flag_empty is True:
+                print(empty)
+
+        print('-'*70+'\n')
+
+
+    def fetch_synthesis(self, name):
+        "Download the synthesis files and search by given name"
+
+        media_list = self.make_dict()
+        lista1 = []
+        lista_d = {}
+        counter = 0
+
+        # Download the synthesis.hdlist.cz for each repo and save it with .gz suffix
+        for (key, value) in media_list.items():
+            counter += 1
+    
+            # Download the synthesis only one time
+            if self.times <= 1:
+                newfile = key + '.gz'
+                subprocess.call(['wget', '--timeout=10', '--tries=1', '-O', newfile, value])
+
+                #Exctract synthesis according the compression type
+                cmd = ['file', newfile]
+                output = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
+                output = str(output, 'utf-8')
+    
+                if output.count('gzip') >= 1:
+                    subprocess.call(['gzip', '-d', '-f', newfile])
+                if output.count('XZ') >= 1:
+                    subprocess.call(['xz', '-f', '--decompress', '-S', '.gz', newfile])
+    
+                # After the first download of the synthesis files
+                # don't download them again, to make rpm searches faster
+                if self.times == 1:
+                    if counter == len(media_list):
+                        self.times = 2
+
+            #-----------------------------------------------------------------
+            # The same time decompress the downloaded file and add the
+            # rpm names in a dictionnary (lista_d) by media
+
+            file_present = False
+
+            try:
+                decompressed = open(key)
+                file_present = True
+            except:
+                print(self._('No such file ')+key)
+
+            if file_present:
+                for i in decompressed:
+                    pedio = i.rstrip('\n').split('@')[1:]
+                    if pedio[0] == 'info':
+                        # Keep only the field with the name of the rpm
+                        # Make a dictionnary {name of rpm: name of media}
+                        # to use it below for finding the repo of the rpm
+                        rpmname = pedio.pop(1)
+                        lista_d[rpmname] = key
+    
+            # if for some reason the downloaded files are deleted or missing:
+            if file_present:
+                decompressed.close()
+            #-----------------------------------------------------------------
+        url = ""
+        answer_res = ""
+    
+        # Now we search if any rpm name matches
+        for (key, value) in lista_d.items():
+            url = media_list.get(value)
+            lkey = key.lower()
+            lname = name.lower()
+            if lkey.count(lname) >= 1:
+                answer_res = self._('Found') + ' ' + name 
+                answer_res += ' ' + (self._('in repo:') + (' "{0}" ') + self._('url:')\
+                    + ' \n').format(value) + url[:-len(self.path)] + key + '.rpm'
+                if answer_res in lista1:
+                    continue
+                # Make a list (lista1) with the results
+                lista1.append(answer_res)
+
+        count = 0
+        print('-'*70+'\n')
+        for i in lista1:
+            print(i, '\n')
+        print('-'*70)
+
+        for i in range(0, len(lista1)):
+            count += 1
+        print(self._('Total:')+(' {0}\n').format(count))
+        self.times = 2
+
+
+
+    def llength(self):
+        "Check the lenth of the list of the media"
+        ll = len(self.make_list_media_url())
+        return ll
+    
+    
+    def mainar(self, i):
+        "If the script has an argument"
+        
+        if self.llength() == 0:
+            print(self._("*** No configured media ***"))
+            print(self._('Launch the script without arguments,'))
+            print(self._("and add at least one media from the menu 'Add media'"))
+        else:
+            self.times = 0
+            self.fetch_synthesis(i)
+            
+            
+    def mainnoar(self):
+        "If the script does not have any argument"
+        
+        self.times = 1
+        while True:
+            print('1 - ' + self._('Search package'))
+            print('2 - ' + self._('Add media'))
+            print('3 - ' + self._('List media'))
+            print('4 - ' + self._('Delete media'))
 
             choice = input()
             if choice == '':
                 break
+            # Before searching we must have available medias
             if choice == '1':
-                retr_list = make_list_media_url()
-                if llength == 0:
-                    input(nomedia)
+                if self.llength() == 0:
+                    input(self.nomedia)
                     continue
+
                 while True:
-                    print(_("Press 'enter' to quit, '*' to show all packages"))
-                    print(_('Enter the name of the package:'))
+                    print(self._("Press 'enter' to quit, '*' to show all packages"))
+                    print(self._('Enter the name of the package:'))
                     name = input()
                     print('\n')
                     if name == '':
                         break
                     if name == '*':
                         name = ''
-                    fetch_synthesis(name)
+                    self.fetch_synthesis(name)
 
             if choice == '2':
-                add_media()
+                self.add_media()
             if choice == '3':
-                if llength == 0:
-                    input(nomedia)
+                if self.llength == 0:
+                    input(self.nomedia)
                 else:
-                    list_media()
+                    self.list_media()
             if choice == '4':
-                if llength == 0:
-                    input(nomedia)
+                if self.llength == 0:
+                    input(self.nomedia)
                 else:
-                    delete_media()
+                    self.delete_media()
+
+
+### main program ###
+if __name__ == '__main__':
+    prog = Mga3prepo()
+
+    # If the script has an argument
+    if len(sys.argv) > 1:
+        prog.mainar(sys.argv[1])
+        
+    # If the script does not have any argument
+    if len(sys.argv) == 1:
+        prog.mainnoar()
+
