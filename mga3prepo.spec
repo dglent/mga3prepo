@@ -1,5 +1,5 @@
 Name:		mga3prepo
-Version:	0.7
+Version:	0.8
 Release:	%mkrel 1
 Summary:	A script to search packages in extra repositories
 Summary(fr_FR):	Un script pour rechercher des paquets dans les dépôts supplémentaires
@@ -63,11 +63,14 @@ popd
 
 
 %files -f %{name}.lang
-%doc README COPYING
+%doc README
 %{_bindir}/%{name}
 %{python3_sitelib}/%{name}-%{version}-py%py3ver.egg-info
 
 %changelog
+* Sun Sep 22 2013 dimitrios (MLO Team) <dimitrios> 0.8-1.mga3
+- Code improvement
+
 * Fri May 10 2013 dimitrios (MLO Team) <dimitrios> 0.7-1.mga3
 - Make searchs faster after downloading once the media
   when searching packages from the main menu.
