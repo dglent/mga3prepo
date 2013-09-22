@@ -29,11 +29,17 @@ class Mga3prepo(object):
         self._ = __trans.gettext
         #---------------------------
         
-        self.name_cd = '/.mga3prepo'
+        self.name_cd = '/.config/mga3prepo'
         self.conf = 'mga3prepo.conf'
         self.home = os.getenv('HOME')
         self.path = 'media_info/synthesis.hdlist.cz'
         self.nomedia = self._('*** You have to add at least one media first\n')
+
+        # Move the configuration file from the old version path: "~/" to "~/.config/"
+        os.chdir(self.home)
+        if os.path.exists('.mga3prepo'):
+            comm = ('mv .mga3prepo/ .config/mga3prepo')
+            os.system(comm)
 
         # Creates config if file does n't exist (eg first launch)
         try:
