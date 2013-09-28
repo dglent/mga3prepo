@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-22 10:46+0200\n"
+"POT-Creation-Date: 2013-09-28 08:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,140 +21,148 @@ msgstr ""
 msgid "*** You have to add at least one media first\n"
 msgstr ""
 
-#: mga3prepo:53
-msgid "Here is a list with some of the unofficial media for Mageia(2):"
-msgstr ""
-
 #: mga3prepo:54
-msgid "See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
+msgid "Here is a list with some of the unofficial repositories for Mageia(3):"
 msgstr ""
 
 #: mga3prepo:55
+msgid "See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
+msgstr ""
+
+#: mga3prepo:56
 msgid "1. Czech Republic"
 msgstr ""
 
-#: mga3prepo:58
+#: mga3prepo:59
 msgid "2. Russia"
 msgstr ""
 
-#: mga3prepo:62
+#: mga3prepo:63
 msgid "3. Greece"
 msgstr ""
 
-#: mga3prepo:66
+#: mga3prepo:67
 msgid "4. Poland"
 msgstr ""
 
-#: mga3prepo:69
+#: mga3prepo:70
 msgid "5. Spain"
 msgstr ""
 
-#: mga3prepo:76
+#: mga3prepo:77
 msgid "6. France"
 msgstr ""
 
-#: mga3prepo:125
+#: mga3prepo:126
 msgid "Enter media name (Enter to quit or * for info):\n"
 msgstr ""
 
-#: mga3prepo:133
+#: mga3prepo:134
 msgid "*** The media name already exists"
 msgstr ""
 
-#: mga3prepo:136
+#: mga3prepo:137
 msgid "The name cannot include the key character '@'"
 msgstr ""
 
-#: mga3prepo:137
+#: mga3prepo:138
 msgid "Please choose another one"
 msgstr ""
 
-#: mga3prepo:140
+#: mga3prepo:141
 msgid "Enter media url:\n"
 msgstr ""
 
-#: mga3prepo:142
+#: mga3prepo:143
 msgid "You have to enter an url"
 msgstr ""
 
-#: mga3prepo:147
+#: mga3prepo:148
 msgid "*** The media url already exists"
 msgstr ""
 
-#: mga3prepo:158
+#: mga3prepo:159
 msgid ""
 "\n"
 " *** Added media: "
 msgstr ""
 
-#: mga3prepo:163
+#: mga3prepo:164
 msgid "*** Cannot found media with synthesis in:"
 msgstr ""
 
-#: mga3prepo:174
+#: mga3prepo:175
 msgid "Enter the name of the media to delete (Enter to quit):\n"
 msgstr ""
 
-#: mga3prepo:179
+#: mga3prepo:180
 msgid "*** The media does n't exist"
 msgstr ""
 
-#: mga3prepo:198
+#: mga3prepo:199
 msgid "Empty media list"
 msgstr ""
 
-#: mga3prepo:263
+#: mga3prepo:268
 msgid "No such file "
 msgstr ""
 
-#: mga3prepo:288
+#: mga3prepo:304
 msgid "Found"
 msgstr ""
 
-#: mga3prepo:289
+#: mga3prepo:305
 msgid "in repo:"
 msgstr ""
 
-#: mga3prepo:289
+#: mga3prepo:305
 msgid "url:"
 msgstr ""
 
-#: mga3prepo:304
+#: mga3prepo:321
 msgid "Total:"
 msgstr ""
 
-#: mga3prepo:319
+#: mga3prepo:359
+msgid "rpm with new version:"
+msgstr ""
+
+#: mga3prepo:373
 msgid "*** No configured media ***"
 msgstr ""
 
-#: mga3prepo:320
+#: mga3prepo:374
 msgid "Launch the script without arguments,"
 msgstr ""
 
-#: mga3prepo:321
+#: mga3prepo:375
 msgid "and add at least one media from the menu 'Add media'"
 msgstr ""
 
-#: mga3prepo:332
+#: mga3prepo:386
 msgid "Search package"
 msgstr ""
 
-#: mga3prepo:333
+#: mga3prepo:387
 msgid "Add media"
 msgstr ""
 
-#: mga3prepo:334
+#: mga3prepo:388
 msgid "List media"
 msgstr ""
 
-#: mga3prepo:335
+#: mga3prepo:389
 msgid "Delete media"
 msgstr ""
 
-#: mga3prepo:347
+#: mga3prepo:390
+msgid "Search updates"
+msgstr ""
+
+#: mga3prepo:402
 msgid "Press 'enter' to quit, '*' to show all packages"
 msgstr ""
 
-#: mga3prepo:348
+#: mga3prepo:403
 msgid "Enter the name of the package:"
 msgstr ""

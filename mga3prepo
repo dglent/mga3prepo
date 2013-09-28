@@ -34,6 +34,7 @@ class Mga3prepo(object):
         self.home = os.getenv('HOME')
         self.path = 'media_info/synthesis.hdlist.cz'
         self.nomedia = self._('*** You have to add at least one media first\n')
+        self.search = True
 
         # Move the configuration file from the old version path: "~/" to "~/.config/"
         os.chdir(self.home)
@@ -50,36 +51,36 @@ class Mga3prepo(object):
 
 
     def info(self):
-        print(self._('Here is a list with some of the unofficial media for Mageia(2):'))
+        print(self._('Here is a list with some of the unofficial repositories for Mageia(3):'))
         print(self._('See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985'))
         print(self._('1. Czech Republic'))
-        print('http://petos.cz/rpm/mageia/2/i586/')
-        print('http://petos.cz/rpm/mageia/2/x86_64/')
+        print('http://petos.cz/rpm/mageia/3/i586/')
+        print('http://petos.cz/rpm/mageia/3/x86_64/')
         print(self._('2. Russia'))
-        print('http://packages.mageialinux.ru/mageia2/RPMS/i586/')
-        print('http://packages.mageialinux.ru/mageia2/RPMS/x86_64/')
-        print('http://packages.mageialinux.ru/mageia2/RPMS/noarch/')
+        print('http://packages.mageialinux.ru/mageia3/RPMS/i586/')
+        print('http://packages.mageialinux.ru/mageia3/RPMS/x86_64/')
+        print('http://packages.mageialinux.ru/mageia3/RPMS/noarch/')
         print(self._('3. Greece'))
-        print('http://www.mageia-gr.org/rpm/2/i586/')
-        print('http://www.mageia-gr.org/rpm/2/x86_64/')
-        print('http://www.mageia-gr.org/rpm/2/noarch/')
+        print('http://www.mageia-gr.org/rpm/3/i586/')
+        print('http://www.mageia-gr.org/rpm/3/x86_64/')
+        print('http://www.mageia-gr.org/rpm/3/noarch/')
         print(self._('4. Poland'))
-        print('http://repo.mageia.org.pl/2/i586/')
-        print('http://repo.mageia.org.pl/2/x86_64/')
+        print('http://repo.mageia.org.pl/3/i586/')
+        print('http://repo.mageia.org.pl/3/x86_64/')
         print(self._('5. Spain'))
-        print('http://ftp.blogdrake.net/mageia/mageia2/free/i586/')
-        print('http://ftp.blogdrake.net/mageia/mageia2/free/x86_64/')
-        print('http://ftp.blogdrake.net/mageia/mageia2/free/noarch/')
-        print('http://ftp.blogdrake.net/mageia/mageia2/non-free/i586/')
-        print('http://ftp.blogdrake.net/mageia/mageia2/non-free/x86_64/')
-        print('http://ftp.blogdrake.net/mageia/mageia2/non-free/noarch/')
+        print('http://ftp.blogdrake.net/mageia/mageia3/free/i586/')
+        print('http://ftp.blogdrake.net/mageia/mageia3/free/x86_64/')
+        print('http://ftp.blogdrake.net/mageia/mageia3/free/noarch/')
+        print('http://ftp.blogdrake.net/mageia/mageia3/non-free/i586/')
+        print('http://ftp.blogdrake.net/mageia/mageia3/non-free/x86_64/')
+        print('http://ftp.blogdrake.net/mageia/mageia3/non-free/noarch/')
         print(self._('6. France'))
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/i586/core/')
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/i586/nonfree/')
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/i586/tainted/')
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/core/')
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/nonfree/')
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/2/x86_64/tainted/\n')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/i586/core/')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/i586/nonfree/')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/i586/tainted/')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/x86_64/core/')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/x86_64/nonfree/')
+        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/x86_64/tainted/\n')
         input()
 
 
@@ -221,9 +222,13 @@ class Mga3prepo(object):
         "Download the synthesis files and search by given name"
 
         media_list = self.make_dict()
-        lista1 = []
+        self.lista1 = []
         lista_d = {}
+        self.update_list=[]
         counter = 0
+        # Prepare the file with the list of package for checking updates
+        if os.path.exists('rpm_u.txt'):
+            os.remove('rpm_u.txt')
 
         # Download the synthesis.hdlist.cz for each repo and save it with .gz suffix
         for (key, value) in media_list.items():
@@ -271,6 +276,17 @@ class Mga3prepo(object):
                         # to use it below for finding the repo of the rpm
                         rpmname = pedio.pop(1)
                         lista_d[rpmname] = key
+                        
+                        # Make a string with the format: 'name@version'
+                        name_v = rpmname
+                        n_vfind = name_v.rfind('-')
+                        name_v = name_v[n_vfind-1::-1]
+                        name_v = (name_v[::-1])
+                        n_vfind = name_v.rfind('-')
+                        name_v = name_v[:n_vfind]+'@'+name_v[n_vfind+1:]
+                        
+                        with open('rpm_u.txt', 'a') as rpm_u:
+                            rpm_u.write(name_v+'\n')
     
             # if for some reason the downloaded files are deleted or missing:
             if file_present:
@@ -288,24 +304,62 @@ class Mga3prepo(object):
                 answer_res = self._('Found') + ' ' + name 
                 answer_res += ' ' + (self._('in repo:') + (' "{0}" ') + self._('url:')\
                     + ' \n').format(value) + url[:-len(self.path)] + key + '.rpm'
-                if answer_res in lista1:
+                if answer_res in self.lista1:
                     continue
-                # Make a list (lista1) with the results
-                lista1.append(answer_res)
+                # Make a list (self.lista1) with the results
+                self.lista1.append(answer_res)
 
         count = 0
-        print('-'*70+'\n')
-        for i in lista1:
-            print(i, '\n')
-        print('-'*70)
+        if self.search:
+            print('-'*70+'\n')
+            for i in self.lista1:
+                print(i, '\n')
+            print('-'*70)
 
-        for i in range(0, len(lista1)):
-            count += 1
-        print(self._('Total:')+(' {0}\n').format(count))
+            for i in range(0, len(self.lista1)):
+                count += 1
+            print(self._('Total:')+(' {0}\n').format(count))
         self.times = 2
 
 
-
+    def updates(self):
+        self.lmatch = []
+        self.dmatchu = {}
+        self.dmatchi = {}
+        self.fetch_synthesis('')
+        print('-'*70)
+        comm = 'rpm -qa --qf "%{NAME}@%{VERSION}\n"|sort >rpm_i.txt'
+        os.system(comm)
+        with open ('rpm_i.txt', 'r') as rpm_i:
+            lrpmi = rpm_i.readlines()
+        with open ('rpm_u.txt', 'r') as rpm_u:
+            lrpmu = rpm_u.readlines()
+        for i in lrpmu:
+            ifind = i.index('@')
+            # Make a dico with name and the version of rpm from 3p media
+            self.dmatchu[i[:ifind]] = i[ifind+1:]
+            
+        for i in lrpmi:
+            ifind = i.index('@')
+            # Make a dico with name and the version of installed rpm
+            self.dmatchi[i[:ifind]] = i[ifind+1:]
+        total = 0    
+        for (key, value) in self.dmatchu.items():
+            if key in self.dmatchi:
+                oldv = self.dmatchi.get(key)
+                count = 0
+                for i in range(0, len(value)):
+                    if value[count].isdigit():
+                        if value[count] < oldv[count]:break                        
+                        if value[count] > oldv[count]:
+                            print(key + ' ' + value[:-1])
+                            total += 1
+                            break
+                    count += 1
+        print('-'*70+'\n'+self._('rpm with new version:')\
+            + (' {0}\n').format(total))
+                
+                
     def llength(self):
         "Check the lenth of the list of the media"
         ll = len(self.make_list_media_url())
@@ -333,6 +387,7 @@ class Mga3prepo(object):
             print('2 - ' + self._('Add media'))
             print('3 - ' + self._('List media'))
             print('4 - ' + self._('Delete media'))
+            print('5 - ' + self._('Search updates'))
 
             choice = input()
             if choice == '':
@@ -352,20 +407,25 @@ class Mga3prepo(object):
                         break
                     if name == '*':
                         name = ''
+                    self.search = True
                     self.fetch_synthesis(name)
 
             if choice == '2':
                 self.add_media()
             if choice == '3':
-                if self.llength == 0:
-                    input(self.nomedia)
-                else:
                     self.list_media()
             if choice == '4':
-                if self.llength == 0:
+                if self.llength() == 0:
                     input(self.nomedia)
                 else:
                     self.delete_media()
+                    
+            if choice == '5':
+                if self.llength() == 0:
+                    input(self.nomedia)
+                else:
+                    self.search = False
+                    self.updates()
 
 
 ### main program ###
