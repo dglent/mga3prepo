@@ -284,7 +284,6 @@ class Mga3prepo(object):
                         name_v = (name_v[::-1])
                         n_vfind = name_v.rfind('-')
                         name_v = name_v[:n_vfind]+'@'+name_v[n_vfind+1:]
-                        
                         with open('rpm_u.txt', 'a') as rpm_u:
                             rpm_u.write(name_v+'\n')
     
@@ -315,7 +314,7 @@ class Mga3prepo(object):
             for i in self.lista1:
                 print(i, '\n')
             print('-'*70)
-
+            
             for i in range(0, len(self.lista1)):
                 count += 1
             print(self._('Total:')+(' {0}\n').format(count))
@@ -323,6 +322,7 @@ class Mga3prepo(object):
 
 
     def updates(self):
+        "Search for updates in installed rpm"
         self.dmatchu = {}
         self.dmatchi = {}
         self.fetch_synthesis('')
@@ -361,10 +361,12 @@ class Mga3prepo(object):
                     if value[count].isdigit():
                         if value[count] < oldv[count]:break
                         if value[count] > oldv[count]:
+                            # Update found
                             print(key + ' ' + value[:-1])
                             total += 1
                             break
                     count += 1
+                    
         print('-'*70+'\n'+self._('rpm with new version:')\
             + (' {0}\n').format(total))
                 
@@ -373,13 +375,17 @@ class Mga3prepo(object):
         "Check if there are newer versions between rpm in 3rd party repos"
         exist_ver = self.dmatchu[name]
         length = min (len(version),len(exist_ver))   
-        dup = 0
+        update = False
         for i in range (0, length):
-            if version[dup].isdigit():
-                if version[dup] < exist_ver[dup]:
+            if version[i].isdigit():
+                if version[i] < exist_ver[i]:
                     self.dmatchu[name] = exist_ver
-                else:
-                    self.dmatchu[name] = version
+                    update = True
+                    break
+            else:
+                continue
+        if not update:
+            self.dmatchu[name] = version
                   
         
                 
@@ -391,7 +397,6 @@ class Mga3prepo(object):
     
     def mainar(self, i):
         "If the script has an argument"
-        
         if self.llength() == 0:
             print(self._("*** No configured media ***"))
             print(self._('Launch the script without arguments,'))
