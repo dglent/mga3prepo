@@ -21,6 +21,7 @@ import subprocess
 import gettext
 import sys
 
+
 class Mga3prepo(object):
     def __init__(self):
         
@@ -323,6 +324,7 @@ class Mga3prepo(object):
 
     def updates(self):
         "Search for updates in installed rpm"
+        
         self.dmatchu = {}
         self.dmatchi = {}
         self.fetch_synthesis('')
@@ -335,15 +337,26 @@ class Mga3prepo(object):
             lrpmu = rpm_u.readlines()
 
         for i in lrpmu:
+            add = True
             ifind = i.index('@')
-            uversion = i[ifind+1:]
-            uname = i[:ifind]
+            uversion = (i[ifind+1:]).strip()
+            uname = (i[:ifind]).strip()
+            # We search the newest version if duplicate rpm
             if uname in self.dmatchu:
-                self.duplicate(uname, uversion)
-            else:
-                # Make a dico with name and the version of rpm from 3p media
+                version = self.dmatchu.get(uname)
+                length = min(len(version), len(uversion))
+                for k in range(0, length):
+                    if version[k].isdigit():
+                        if version[k] > uversion[k]:
+                            self.dmatchu[uname] = version
+                            add = False
+                            break
+                        if version[k] < uversion[k]:
+                            self.dmatchu[uname] = uversion
+                            break
+            if add:
                 self.dmatchu[uname] = uversion
-        
+
         for i in lrpmi:
             ifind = i.index('@')
             for (key, value) in self.dmatchu.items():
@@ -356,39 +369,20 @@ class Mga3prepo(object):
         for (key, value) in self.dmatchu.items():
             if key in self.dmatchi:
                 oldv = self.dmatchi.get(key)
-                count = 0
-                for i in range(0, len(value)):
-                    if value[count].isdigit():
-                        if value[count] < oldv[count]:break
-                        if value[count] > oldv[count]:
+                length1 = min(len(oldv), len(value))
+                for i in range(0, length1):
+                    if value[i].isdigit():
+                        if value[i] < oldv[i]:break
+                        if value[i] > oldv[i]:
                             # Update found
-                            print(key + ' ' + value[:-1])
+                            print(key + ' ' + value[:])
                             total += 1
                             break
-                    count += 1
                     
         print('-'*70+'\n'+self._('rpm with new version:')\
             + (' {0}\n').format(total))
-                
-                
-    def duplicate(self, name, version):
-        "Check if there are newer versions between rpm in 3rd party repos"
-        exist_ver = self.dmatchu[name]
-        length = min (len(version),len(exist_ver))   
-        update = False
-        for i in range (0, length):
-            if version[i].isdigit():
-                if version[i] < exist_ver[i]:
-                    self.dmatchu[name] = exist_ver
-                    update = True
-                    break
-            else:
-                continue
-        if not update:
-            self.dmatchu[name] = version
                   
-        
-                
+
     def llength(self):
         "Check the lenth of the list of the media"
         ll = len(self.make_list_media_url())
