@@ -68,6 +68,10 @@ popd
 %{python3_sitelib}/%{name}-%{version}-py%py3ver.egg-info
 
 %changelog
+* Tue Oct 01 2013 dimitrios (MLO Team) <dimitrios> 0.9.2-1.mga3
+- Fix bug in comparing versions between rpm in 3rd repositories 
+  (fix 0.9.1 code)
+
 * Sun Sep 30 2013 dimitrios (MLO Team) <dimitrios> 0.9.1-1.mga3
 - Fix bug in comparing versions between rpm in 3rd repositories
 
