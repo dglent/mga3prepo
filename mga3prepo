@@ -129,8 +129,8 @@ class Mga3prepo(object):
                 self.info()
                 continue
             if media_name == '':
-                break
                 file_c.close()
+                break
             if media_name in name_present:
                 input(self._('*** The media name already exists'))
                 continue
@@ -169,8 +169,7 @@ class Mga3prepo(object):
     def delete_media(self):
         "Delete a media from the configuration file"
         media_d = self.make_dict()
-        file_c = open(self.conf, 'r')
-    
+        
         while True:
             self.list_media()
             name = input(self._('Enter the name of the media to delete (Enter to quit):\n'))
@@ -221,7 +220,6 @@ class Mga3prepo(object):
 
     def fetch_synthesis(self, name):
         "Download the synthesis files and search by given name"
-
         media_list = self.make_dict()
         self.lista1 = []
         lista_d = {}
@@ -324,7 +322,6 @@ class Mga3prepo(object):
 
     def updates(self):
         "Search for updates in installed rpm"
-        
         self.dmatchu = {}
         self.dmatchi = {}
         self.fetch_synthesis('')
@@ -341,17 +338,21 @@ class Mga3prepo(object):
             ifind = i.index('@')
             uversion = (i[ifind+1:]).strip()
             uname = (i[:ifind]).strip()
+            doublver = []
+            existver = []
             # We search the newest version if duplicate rpm
             if uname in self.dmatchu:
                 version = self.dmatchu.get(uname)
-                length = min(len(version), len(uversion))
+                existver = version.split('.')
+                doublver = uversion.split('.')
+                length = min(len(existver), len(doublver))
                 for k in range(0, length):
-                    if version[k].isdigit():
-                        if version[k] > uversion[k]:
+                    if existver[k].isdigit():
+                        if int(existver[k]) > int(doublver[k]):
                             self.dmatchu[uname] = version
                             add = False
                             break
-                        if version[k] < uversion[k]:
+                        if int(existver[k]) < int(doublver[k]):
                             self.dmatchu[uname] = uversion
                             break
             if add:
@@ -421,7 +422,7 @@ class Mga3prepo(object):
                     continue
 
                 while True:
-                    print(self._("Press 'enter' to quit, '*' to show all packages"))
+                    print(self._("Press 'enter' to quit, '*' to list all packages"))
                     print(self._('Enter the name of the package:'))
                     name = input()
                     print('\n')
@@ -429,7 +430,6 @@ class Mga3prepo(object):
                         break
                     if name == '*':
                         name = ''
-                    self.search = True
                     self.fetch_synthesis(name)
 
             if choice == '2':
