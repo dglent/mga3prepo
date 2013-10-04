@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-03 17:57+0200\n"
+"POT-Creation-Date: 2013-10-04 04:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -123,46 +123,46 @@ msgstr ""
 msgid "Total:"
 msgstr ""
 
-#: mga3prepo:383
+#: mga3prepo:388
 msgid "rpm with new version:"
 msgstr ""
 
-#: mga3prepo:396
+#: mga3prepo:401
 msgid "*** No configured media ***"
 msgstr ""
 
-#: mga3prepo:397
+#: mga3prepo:402
 msgid "Launch the script without arguments,"
 msgstr ""
 
-#: mga3prepo:398
+#: mga3prepo:403
 msgid "and add at least one media from the menu 'Add media'"
 msgstr ""
 
-#: mga3prepo:409
+#: mga3prepo:414
 msgid "Search package"
 msgstr ""
 
-#: mga3prepo:410
+#: mga3prepo:415
 msgid "Add media"
 msgstr ""
 
-#: mga3prepo:411
+#: mga3prepo:416
 msgid "List media"
 msgstr ""
 
-#: mga3prepo:412
+#: mga3prepo:417
 msgid "Delete media"
 msgstr ""
 
-#: mga3prepo:413
+#: mga3prepo:418
 msgid "Search updates"
 msgstr ""
 
-#: mga3prepo:425
+#: mga3prepo:430
 msgid "Press 'enter' to quit, '*' to list all packages"
 msgstr ""
 
-#: mga3prepo:426
+#: mga3prepo:431
 msgid "Enter the name of the package:"
 msgstr ""

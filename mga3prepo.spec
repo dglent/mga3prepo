@@ -1,5 +1,5 @@
 Name:		mga3prepo
-Version:	0.9.3
+Version:	0.9.4
 Release:	%mkrel 1
 Summary:	A script to search packages in extra repositories
 Summary(fr_FR):	Un script pour rechercher des paquets dans les dépôts supplémentaires
@@ -68,6 +68,9 @@ popd
 %{python3_sitelib}/%{name}-%{version}-py%py3ver.egg-info
 
 %changelog
+* Fri Oct 04 2013 dimitrios (MLO Team) <dimitrios> 0.9.4-1.mga3
+- Fix bug of 0.9.3 code in 'Search updates'
+
 * Thu Oct 03 2013 dimitrios (MLO Team) <dimitrios> 0.9.3-1.mga3
 - Fix bug of 0.9.2 code in 'Search updates'
 

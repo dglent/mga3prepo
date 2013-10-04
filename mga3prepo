@@ -368,18 +368,23 @@ class Mga3prepo(object):
         
         total = 0  
         for (key, value) in self.dmatchu.items():
+            newv = []
+            oldv = []
             if key in self.dmatchi:
-                oldv = self.dmatchi.get(key)
-                length1 = min(len(oldv), len(value))
+                oldval = self.dmatchi.get(key).strip()
+                oldver = oldval.split('.')
+                newval = value.strip()
+                newver = newval.split('.')
+                length1 = min(len(oldver), len(newver))
                 for i in range(0, length1):
-                    if value[i].isdigit():
-                        if value[i] < oldv[i]:break
-                        if value[i] > oldv[i]:
+                    if newver[i].isdigit():
+                        if int(newver[i]) < int(oldver[i]):break
+                        if int(newver[i]) > int(oldver[i]):
                             # Update found
-                            print(key + ' ' + value[:])
+                            print(key + ' ' + value)
                             total += 1
                             break
-                    
+
         print('-'*70+'\n'+self._('rpm with new version:')\
             + (' {0}\n').format(total))
                   
