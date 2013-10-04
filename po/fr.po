@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-04 04:38+0200\n"
+"POT-Creation-Date: 2013-10-04 17:26+0200\n"
 "PO-Revision-Date: 2013-10-04 04:38+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
@@ -171,6 +171,13 @@ msgid "Enter the name of the package:"
 msgstr "Saisissez le nom du paquetage:"
 
 #, fuzzy
+#~ msgid "*** The media name is not valid"
+#~ msgstr "*** Le dépôt n'existe pas"
+
+#~ msgid " in repo: \"{0}\" url: \n"
+#~ msgstr " dans le dépôt: \"{0}\" url: \n"
+
+#, fuzzy
 #~ msgid ""
 #~ "*** No configured media.\n"
 #~ "Launch the script without arguments,\n"
@@ -178,10 +185,3 @@ msgstr "Saisissez le nom du paquetage:"
 #~ msgstr ""
 #~ "*** Aucun dépôts configurés, Lancez le script sans arguments,               \n"
 #~ "et ajoutez au moins un dépôt depuis le menu «Ajouter un dépôt»\n"
-
-#~ msgid " in repo: \"{0}\" url: \n"
-#~ msgstr " dans le dépôt: \"{0}\" url: \n"
-
-#, fuzzy
-#~ msgid "*** The media name is not valid"
-#~ msgstr "*** Le dépôt n'existe pas"
