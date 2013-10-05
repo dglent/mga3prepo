@@ -40,8 +40,7 @@ class Mga3prepo(object):
         # Move the configuration file from the old version path: "~/" to "~/.config/"
         os.chdir(self.home)
         if os.path.exists('.mga3prepo'):
-            comm = ('mv .mga3prepo/ .config/mga3prepo')
-            os.system(comm)
+            os.system('mv .mga3prepo/ .config/mga3prepo')
 
         # Creates config if file does n't exist (eg first launch)
         try:
@@ -326,8 +325,7 @@ class Mga3prepo(object):
         self.dmatchi = {}
         self.fetch_synthesis('')
         print('-'*70)
-        comm = 'rpm -qa --qf "%{NAME}@%{VERSION}\n"|sort >rpm_i.txt'
-        os.system(comm)
+        os.system('rpm -qa --qf "%{NAME}@%{VERSION}\n"|sort >rpm_i.txt')
         with open ('rpm_i.txt', 'r') as rpm_i:
             lrpmi = rpm_i.readlines()
         with open ('rpm_u.txt', 'r') as rpm_u:
