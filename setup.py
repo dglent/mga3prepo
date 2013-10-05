@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='mga3prepo',
-      version="0.9.4",
+      version="0.9.5",
       description="A tool to search packages for Mageia in third party repositories",
       author="Dimitrios Glentadakis",
       author_email="dglent@gmail.com",

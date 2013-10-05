@@ -73,7 +73,7 @@ class Mga3prepo(object):
         print('http://ftp.blogdrake.net/mageia/mageia3/free/noarch/')
         print('http://ftp.blogdrake.net/mageia/mageia3/non-free/i586/')
         print('http://ftp.blogdrake.net/mageia/mageia3/non-free/x86_64/')
-        print('http://ftp.blogdrake.net/mageia/mageia3/non-free/noarch/')
+        #print('http://ftp.blogdrake.net/mageia/mageia3/non-free/noarch/')
         print(self._('6. France'))
         print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/i586/core/')
         print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/i586/nonfree/')
@@ -324,6 +324,7 @@ class Mga3prepo(object):
         self.dmatchu = {}
         self.dmatchi = {}
         self.fetch_synthesis('')
+        
         print('-'*70)
         os.system('rpm -qa --qf "%{NAME}@%{VERSION}\n"|sort >rpm_i.txt')
         with open ('rpm_i.txt', 'r') as rpm_i:
@@ -338,14 +339,14 @@ class Mga3prepo(object):
             uname = (i[:ifind]).strip()
             doublver = []
             existver = []
-            # We search the newest version if duplicate rpm
+            # We search the newest version if duplicates rpm:
             if uname in self.dmatchu:
                 version = self.dmatchu.get(uname)
                 existver = version.split('.')
                 doublver = uversion.split('.')
                 length = min(len(existver), len(doublver))
                 for k in range(0, length):
-                    if existver[k].isdigit():
+                    if existver[k].isdigit() and doublver[k].isdigit():
                         if int(existver[k]) > int(doublver[k]):
                             self.dmatchu[uname] = version
                             add = False
