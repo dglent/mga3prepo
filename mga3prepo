@@ -213,7 +213,6 @@ class Mga3prepo(object):
         except:
             if flag_empty is True:
                 print(empty)
-
         print('-'*70+'\n')
 
 
@@ -434,6 +433,7 @@ class Mga3prepo(object):
                         break
                     if name == '*':
                         name = ''
+                    self.search = True
                     self.fetch_synthesis(name)
 
             if choice == '2':
