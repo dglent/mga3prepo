@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 06:51+0200\n"
-"PO-Revision-Date: 2013-10-04 04:36+0200\n"
+"POT-Creation-Date: 2013-10-06 09:51+0200\n"
+"PO-Revision-Date: 2013-10-06 09:50+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <i18n-el@ml.mageia.org>\n"
 "Language: el\n"
@@ -17,71 +17,71 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: mga3prepo:37
+#: mga3prepo:38
 msgid "*** You have to add at least one media first\n"
 msgstr "Πρέπει να προσθέσετε τουλάχιστον ένα αποθετήριο πρώτα\n"
 
-#: mga3prepo:54
-msgid "Here is a list with some of the unofficial repositories for Mageia(3):"
-msgstr "Εδώ είναι μια λίστα με μερικά από τα ανεπίσημα αποθετήρια για τη Mageia(3):"
-
 #: mga3prepo:55
+msgid "Here is a list with some of the unofficial repositories for Mageia {0}:"
+msgstr "Εδώ είναι μια λίστα με μερικά από τα ανεπίσημα αποθετήρια για τη Mageia {0}:"
+
+#: mga3prepo:56
 msgid "See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
 msgstr "Δείτε επίσης: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985"
 
-#: mga3prepo:56
+#: mga3prepo:57
 msgid "1. Czech Republic"
 msgstr "1. Δημοκρατία της Τσεχίας"
 
-#: mga3prepo:59
+#: mga3prepo:60
 msgid "2. Russia"
 msgstr "2. Ρωσία"
 
-#: mga3prepo:63
+#: mga3prepo:64
 msgid "3. Greece"
 msgstr "3. Ελλάδα"
 
-#: mga3prepo:67
+#: mga3prepo:68
 msgid "4. Poland"
 msgstr "4. Πολωνία"
 
-#: mga3prepo:70
+#: mga3prepo:71
 msgid "5. Spain"
 msgstr "5. Ισπανία"
 
-#: mga3prepo:77
+#: mga3prepo:78
 msgid "6. France"
 msgstr "6. Γαλλία"
 
-#: mga3prepo:126
+#: mga3prepo:127
 msgid "Enter media name (Enter to quit or * for info):\n"
 msgstr "Εισάγετε το όνομα του αποθετηρίου (Enter για έξοδο ή * για πληροφορίες):\n"
 
-#: mga3prepo:134
+#: mga3prepo:135
 msgid "*** The media name already exists"
 msgstr "*** Το όνομα του αποθετηρίου υπάρχει ήδη"
 
-#: mga3prepo:137
+#: mga3prepo:138
 msgid "The name cannot include the key character '@'"
 msgstr "Το όνομα δεν θα πρέπει να περιέχει τον χαρακτήρα κλειδί «@»"
 
-#: mga3prepo:138
+#: mga3prepo:139
 msgid "Please choose another one"
 msgstr "Παρακαλώ επιλέξτε κάποιο άλλο"
 
-#: mga3prepo:141
+#: mga3prepo:142
 msgid "Enter media url:\n"
 msgstr "Εισάγετε το url του αποθετηρίου:\n"
 
-#: mga3prepo:143
+#: mga3prepo:144
 msgid "You have to enter an url"
 msgstr "Θα πρέπει να εισάγετε ένα url"
 
-#: mga3prepo:148
+#: mga3prepo:149
 msgid "*** The media url already exists"
 msgstr "*** Το url του αποθετηρίου υπάρχει ήδη"
 
-#: mga3prepo:159
+#: mga3prepo:160
 msgid ""
 "\n"
 " *** Added media: "
@@ -89,19 +89,19 @@ msgstr ""
 "\n"
 " *** Προστέθηκε το μέσο: "
 
-#: mga3prepo:164
+#: mga3prepo:165
 msgid "*** Cannot found media with synthesis in:"
 msgstr "*** Αδύνατη η εύρεση αποθετηρίου με «synthesis» στο:"
 
-#: mga3prepo:174
+#: mga3prepo:175
 msgid "Enter the name of the media to delete (Enter to quit):\n"
 msgstr "Εισάγετε το όνομα του αποθετηρίου προς διαγραφή (Enter για έξοδο):\n"
 
-#: mga3prepo:179
+#: mga3prepo:180
 msgid "*** The media does n't exist"
 msgstr "*** Το αποθετήριο δεν υπάρχει"
 
-#: mga3prepo:198
+#: mga3prepo:199
 msgid "Empty media list"
 msgstr "Η λίστα των αποθετηρίων είναι κενή"
 
