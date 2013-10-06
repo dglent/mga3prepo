@@ -20,6 +20,7 @@ import os
 import subprocess
 import gettext
 import sys
+import platform
 
 
 class Mga3prepo(object):
@@ -51,36 +52,36 @@ class Mga3prepo(object):
 
 
     def info(self):
-        print(self._('Here is a list with some of the unofficial repositories for Mageia(3):'))
+        print(self._('Here is a list with some of the unofficial repositories for Mageia {0}:').format(platform.dist()[1]))
         print(self._('See also: https://forums.mageia.org/en/viewtopic.php?f=7&t=1985'))
         print(self._('1. Czech Republic'))
-        print('http://petos.cz/rpm/mageia/3/i586/')
-        print('http://petos.cz/rpm/mageia/3/x86_64/')
+        print(('http://petos.cz/rpm/mageia/{0}/i586/').format(platform.dist()[1]))
+        print(('http://petos.cz/rpm/mageia/{0}/x86_64/').format(platform.dist()[1]))
         print(self._('2. Russia'))
-        print('http://packages.mageialinux.ru/mageia3/RPMS/i586/')
-        print('http://packages.mageialinux.ru/mageia3/RPMS/x86_64/')
-        print('http://packages.mageialinux.ru/mageia3/RPMS/noarch/')
+        print(('http://packages.mageialinux.ru/mageia{0}/RPMS/i586/').format(platform.dist()[1]))
+        print(('http://packages.mageialinux.ru/mageia{0}/RPMS/x86_64/').format(platform.dist()[1]))
+        print(('http://packages.mageialinux.ru/mageia{0}/RPMS/noarch/').format(platform.dist()[1]))
         print(self._('3. Greece'))
-        print('http://www.mageia-gr.org/rpm/3/i586/')
-        print('http://www.mageia-gr.org/rpm/3/x86_64/')
-        print('http://www.mageia-gr.org/rpm/3/noarch/')
+        print(('http://www.mageia-gr.org/rpm/{0}/i586/').format(platform.dist()[1]))
+        print(('http://www.mageia-gr.org/rpm/{0}/x86_64/').format(platform.dist()[1]))
+        print(('http://www.mageia-gr.org/rpm/{0}/noarch/').format(platform.dist()[1]))
         print(self._('4. Poland'))
-        print('http://repo.mageia.org.pl/3/i586/')
-        print('http://repo.mageia.org.pl/3/x86_64/')
+        print(('http://repo.mageia.org.pl/{0}/i586/').format(platform.dist()[1]))
+        print(('http://repo.mageia.org.pl/{0}/x86_64/').format(platform.dist()[1]))
         print(self._('5. Spain'))
-        print('http://ftp.blogdrake.net/mageia/mageia3/free/i586/')
-        print('http://ftp.blogdrake.net/mageia/mageia3/free/x86_64/')
-        print('http://ftp.blogdrake.net/mageia/mageia3/free/noarch/')
-        print('http://ftp.blogdrake.net/mageia/mageia3/non-free/i586/')
-        print('http://ftp.blogdrake.net/mageia/mageia3/non-free/x86_64/')
+        print(('http://ftp.blogdrake.net/mageia/mageia{0}/free/i586/').format(platform.dist()[1]))
+        print(('http://ftp.blogdrake.net/mageia/mageia{0}/free/x86_64/').format(platform.dist()[1]))
+        print(('http://ftp.blogdrake.net/mageia/mageia{0}/free/noarch/').format(platform.dist()[1]))
+        print(('http://ftp.blogdrake.net/mageia/mageia{0}/non-free/i586/').format(platform.dist()[1]))
+        print(('http://ftp.blogdrake.net/mageia/mageia{0}/non-free/x86_64/').format(platform.dist()[1]))
         #print('http://ftp.blogdrake.net/mageia/mageia3/non-free/noarch/')
         print(self._('6. France'))
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/i586/core/')
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/i586/nonfree/')
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/i586/tainted/')
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/x86_64/core/')
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/x86_64/nonfree/')
-        print('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/3/x86_64/tainted/\n')
+        print(('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/{0}/i586/core/').format(platform.dist()[1]))
+        print(('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/{0}/i586/nonfree/').format(platform.dist()[1]))
+        print(('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/{0}/i586/tainted/').format(platform.dist()[1]))
+        print(('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/{0}/x86_64/core/').format(platform.dist()[1]))
+        print(('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/{0}/x86_64/nonfree/').format(platform.dist()[1]))
+        print(('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/{0}/x86_64/tainted/\n').format(platform.dist()[1]))
         input()
 
 
