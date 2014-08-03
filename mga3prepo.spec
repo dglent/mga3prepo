@@ -1,22 +1,22 @@
-Name:		mga3prepo
-Version:	0.9.5
-Release:	%mkrel 1
-Summary:	A script to search packages in extra repositories
-Summary(fr_FR):	Un script pour rechercher des paquets dans les dépôts supplémentaires
-License:	GPLv3
-Group:		System/Packaging
-Url:		https://github.com/dglent/mga3prepo
-Source0:	http://glenbox.free.fr/%{name}/%{version}/%{name}-%{version}.tar.gz
+Name:           mga3prepo
+Version:        0.9.6
+Release:        %mkrel 1
+Summary:        A script to search packages in extra repositories
+Summary(fr_FR): Un script pour rechercher des paquets dans les dépôts supplémentaires
+License:        GPLv3
+Group:          System/Packaging
+Url:            https://github.com/dglent/mga3prepo
+Source0:        http://glenbox.free.fr/%{name}/%{version}/%{name}-%{version}.tar.gz
 
-BuildArch:	noarch
+BuildArch:      noarch
 
-BuildRequires:	gettext
-BuildRequires:	python3-setuptools
+BuildRequires:  gettext
+BuildRequires:  python3-setuptools
 
-Requires:	python3
-Requires:	wget
-Requires:	gzip
-Requires:	xz
+Requires:       python3
+Requires:       wget
+Requires:       gzip
+Requires:       xz
 
 %description
 A script in Python3 to search package from extra (unofficial or not) 
@@ -68,6 +68,9 @@ popd
 %{python3_sitelib}/%{name}-%{version}-py%py3ver.egg-info
 
 %changelog
+* Sun Aug 03 2014 dimitrios (MLO Team) <dimitrios> 0.9.6-1.mga3
+- Code cleanup
+
 * Sat Oct 05 2013 dimitrios (MLO Team) <dimitrios> 0.9.5-1.mga3
 - Fix crash in 'search updates'
 
