@@ -1,5 +1,5 @@
 Name:           mga3prepo
-Version:        0.9.6
+Version:        0.9.7
 Release:        %mkrel 1
 Summary:        A script to search packages in extra repositories
 Summary(fr_FR): Un script pour rechercher des paquets dans les dépôts supplémentaires
@@ -19,13 +19,13 @@ Requires:       gzip
 Requires:       xz
 
 %description
-A script in Python3 to search package from extra (unofficial or not) 
+A script in Python3 to search package from extra (unofficial or not)
 repositories.
-Launch the script as 'mga3prepo' or with the name of the package 
+Launch the script as 'mga3prepo' or with the name of the package
 as an argument.
 
 %description -l fr_FR
-Un script en python3 pour rechercher des paquets dans les dépôts 
+Un script en python3 pour rechercher des paquets dans les dépôts
 supplémentaires (non officiels ou pas).
 Lancez le script de 'mga3prepo' ou avec le nom du paquet comme argument.
 
@@ -43,7 +43,7 @@ mkdir -p %{buildroot}%{_bindir}
 
 install -D -m 755 %{name} \
 	 %{buildroot}%{_bindir}/
-	 
+
 chmod +x %{buildroot}%{_bindir}/
 
 
@@ -68,6 +68,9 @@ popd
 %{python3_sitelib}/%{name}-%{version}-py%py3ver.egg-info
 
 %changelog
+* Sun May 31 2015 dimitrios (MLO Team) <dimitrios> 0.9.7-1.mga5
+- Add Polish translation thanks to napcok
+
 * Sun Aug 03 2014 dimitrios (MLO Team) <dimitrios> 0.9.6-1.mga3
 - Code cleanup
 
@@ -81,7 +84,7 @@ popd
 - Fix bug of 0.9.2 code in 'Search updates'
 
 * Tue Oct 01 2013 dimitrios (MLO Team) <dimitrios> 0.9.2-1.mga3
-- Fix bug in comparing versions between rpm in 3rd repositories 
+- Fix bug in comparing versions between rpm in 3rd repositories
   (fix 0.9.1 code)
 
 * Mon Sep 30 2013 dimitrios (MLO Team) <dimitrios> 0.9.1-1.mga3
