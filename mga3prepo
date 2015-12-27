@@ -25,12 +25,12 @@ import platform
 
 class Mga3prepo(object):
     def __init__(self):
-        
+
         # -----i18n----------------
         __trans = gettext.translation('mga3prepo', fallback=True)
         self._ = __trans.gettext
-        #---------------------------
-        
+        # --------------------------
+
         self.name_cd = '/.config/mga3prepo'
         self.conf = 'mga3prepo.conf'
         self.home = os.getenv('HOME')
@@ -85,7 +85,6 @@ class Mga3prepo(object):
         print(('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/{0}/x86_64/tainted/\n').format(self.sysVersion))
         input()
 
-
     def make_list_media_url(self):
         "Returns a list with the url of the medias"
         lista = []
@@ -94,7 +93,6 @@ class Mga3prepo(object):
             lista.append(value[:-len(self.path)])
         return lista
 
-
     def make_list_media_name(self):
         "Returns a list with the names of the medias"
         lista = []
@@ -102,7 +100,6 @@ class Mga3prepo(object):
         for (key, value) in dico.items():
             lista.append(key)
         return lista
-
 
     def make_dict(self):
         "Returns a dictionnary with the medias"
@@ -115,7 +112,6 @@ class Mga3prepo(object):
             return media_dict
         except:
             return media_dict
-
 
     def add_media(self):
         "Add a media in the list"
@@ -139,7 +135,7 @@ class Mga3prepo(object):
                 print(self._("The name cannot include the key character '@'"))
                 input(self._('Please choose another one'))
                 continue
-    
+
             media_url = input(self._('Enter media url:\n'))
             if media_url == '':
                 input(self._('You have to enter an url'))
@@ -149,11 +145,11 @@ class Mga3prepo(object):
             if media_url in url_present:
                 input(self._('*** The media url already exists'))
                 continue
-    
+
             # The url of the synthesis
             newpath = media_url+self.path
             subprocess.call(['wget', '--timeout=10', '--tries=1', newpath])
-    
+
             if os.path.exists('synthesis.hdlist.cz'):
                 media = (media_name+'@'+newpath+'\n')
                 file_c.write(media)
@@ -166,34 +162,32 @@ class Mga3prepo(object):
                 print('\n' + self._('*** Cannot found media with synthesis in:'))
                 input(newpath)
 
-
     def delete_media(self):
         "Delete a media from the configuration file"
         media_d = self.make_dict()
-        
+
         while True:
             self.list_media()
             name = input(self._('Enter the name of the media to delete (Enter to quit):\n'))
-    
+
             if name == '':
                 break
             if name not in media_d:
                 input(self._('*** The media does n\'t exist'))
                 continue
-    
+
             mname = media_d.get(name)
             media_in_conf = name + '@' + mname
-    
+
             file_c = open(self.conf, 'r')
             lines = file_c.readlines()
             file_c.close()
             file_c = open(self.conf, 'w')
-    
+
             for line in lines:
                 if line != media_in_conf + "\n":
                     file_c.write(line)
             file_c.close()
-
 
     def list_media(self):
         "Parse the configuration file and print a list with the medias"
@@ -202,7 +196,7 @@ class Mga3prepo(object):
         try:
             with open(self.conf, 'r') as file_c:
                 print('-' * 70 + '\n')
-    
+
                 while True:
                     lista = file_c.readline()
                     if lista == '':
@@ -215,15 +209,14 @@ class Mga3prepo(object):
         except:
             if flag_empty is True:
                 print(empty)
-        print('-'*70+'\n')
-
+        print('-' * 70 + '\n')
 
     def fetch_synthesis(self, name):
         "Download the synthesis files and search by given name"
         media_list = self.make_dict()
         self.lista1 = []
         lista_d = {}
-        self.update_list=[]
+        self.update_list = []
         counter = 0
         # Prepare the file with the list of package for checking updates
         if os.path.exists('rpm_u.txt'):
@@ -232,29 +225,29 @@ class Mga3prepo(object):
         # Download the synthesis.hdlist.cz for each repo and save it with .gz suffix
         for (key, value) in media_list.items():
             counter += 1
-    
+
             # Download the synthesis only one time
             if self.times <= 1:
                 newfile = key + '.gz'
                 subprocess.call(['wget', '--timeout=10', '--tries=1', '-O', newfile, value])
 
-                #Exctract synthesis according the compression type
+                # Exctract synthesis according the compression type
                 cmd = ['file', newfile]
                 output = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
                 output = str(output, 'utf-8')
-    
+
                 if output.count('gzip') >= 1:
                     subprocess.call(['gzip', '-d', '-f', newfile])
                 if output.count('XZ') >= 1:
                     subprocess.call(['xz', '-f', '--decompress', '-S', '.gz', newfile])
-    
+
                 # After the first download of the synthesis files
                 # don't download them again, to make rpm searches faster
                 if self.times == 1:
                     if counter == len(media_list):
                         self.times = 2
 
-            #-----------------------------------------------------------------
+            # -----------------------------------------------------------------
             # The same time decompress the downloaded file and add the
             # rpm names in a dictionnary (lista_d) by media
 
@@ -275,7 +268,7 @@ class Mga3prepo(object):
                         # to use it below for finding the repo of the rpm
                         rpmname = pedio.pop(1)
                         lista_d[rpmname] = key
-                        
+
                         # Make a string with the format: 'name@version'
                         name_v = rpmname
                         n_vfind = name_v.rfind('-')
@@ -285,23 +278,23 @@ class Mga3prepo(object):
                         name_v = name_v[:n_vfind]+'@'+name_v[n_vfind+1:]
                         with open('rpm_u.txt', 'a') as rpm_u:
                             rpm_u.write(name_v+'\n')
-    
+
             # if for some reason the downloaded files are deleted or missing:
             if file_present:
                 decompressed.close()
-            #-----------------------------------------------------------------
+            # -------------------------------------------------------------
         url = ""
         answer_res = ""
-    
+
         # Now we search if any rpm name matches
         for (key, value) in lista_d.items():
             url = media_list.get(value)
             lkey = key.lower()
             lname = name.lower()
             if lkey.count(lname) >= 1:
-                answer_res = self._('Found') + ' ' + name 
-                answer_res += ' ' + (self._('in repo:') + (' "{0}" ') + self._('url:')\
-                    + ' \n').format(value) + url[:-len(self.path)] + key + '.rpm'
+                answer_res = self._('Found') + ' ' + name
+                answer_res += ' ' + (self._('in repo:') + (' "{0}" ') + self._('url:')
+                                     + ' \n').format(value) + url[:-len(self.path)] + key + '.rpm'
                 if answer_res in self.lista1:
                     continue
                 # Make a list (self.lista1) with the results
@@ -313,24 +306,23 @@ class Mga3prepo(object):
             for i in self.lista1:
                 print(i, '\n')
             print('-'*70)
-            
+
             for i in range(0, len(self.lista1)):
                 count += 1
             print(self._('Total:')+(' {0}\n').format(count))
         self.times = 2
-
 
     def updates(self):
         "Search for updates in installed rpm"
         self.dmatchu = {}
         self.dmatchi = {}
         self.fetch_synthesis('')
-        
+
         print('-'*70)
         os.system('rpm -qa --qf "%{NAME}@%{VERSION}\n"|sort >rpm_i.txt')
-        with open ('rpm_i.txt', 'r') as rpm_i:
+        with open('rpm_i.txt', 'r') as rpm_i:
             lrpmi = rpm_i.readlines()
-        with open ('rpm_u.txt', 'r') as rpm_u:
+        with open('rpm_u.txt', 'r') as rpm_u:
             lrpmu = rpm_u.readlines()
 
         for i in lrpmu:
@@ -365,11 +357,9 @@ class Mga3prepo(object):
                     # Make a dico with name and the version of installed rpm
                     # if rpm exists in a 3p repository
                     self.dmatchi[i[:ifind]] = i[ifind+1:]
-        
-        total = 0  
+
+        total = 0
         for (key, value) in self.dmatchu.items():
-            newv = []
-            oldv = []
             if key in self.dmatchi:
                 oldval = self.dmatchi.get(key).strip()
                 oldver = oldval.split('.')
@@ -378,23 +368,22 @@ class Mga3prepo(object):
                 length1 = min(len(oldver), len(newver))
                 for i in range(0, length1):
                     if newver[i].isdigit():
-                        if int(newver[i]) < int(oldver[i]):break
+                        if int(newver[i]) < int(oldver[i]):
+                            break
                         if int(newver[i]) > int(oldver[i]):
                             # Update found
                             print(key + ' ' + value)
                             total += 1
                             break
 
-        print('-'*70+'\n'+self._('rpm with new version:')\
-            + (' {0}\n').format(total))
-                  
+        print('-'*70+'\n'+self._('rpm with new version:')
+              + (' {0}\n').format(total))
 
     def llength(self):
         "Check the lenth of the list of the media"
         ll = len(self.make_list_media_url())
         return ll
-    
-    
+
     def mainar(self, i):
         "If the script has an argument"
         if self.llength() == 0:
@@ -404,11 +393,10 @@ class Mga3prepo(object):
         else:
             self.times = 0
             self.fetch_synthesis(i)
-            
-            
+
     def mainnoar(self):
         "If the script does not have any argument"
-        
+
         self.times = 1
         while True:
             print('1 - ' + self._('Search package'))
@@ -447,7 +435,7 @@ class Mga3prepo(object):
                     input(self.nomedia)
                 else:
                     self.delete_media()
-                    
+
             if choice == '5':
                 if self.llength() == 0:
                     input(self.nomedia)
@@ -456,15 +444,14 @@ class Mga3prepo(object):
                     self.updates()
 
 
-### main program ###
+# main program
 if __name__ == '__main__':
     prog = Mga3prepo()
 
     # If the script has an argument
     if len(sys.argv) > 1:
         prog.mainar(sys.argv[1])
-        
+
     # If the script does not have any argument
     if len(sys.argv) == 1:
         prog.mainnoar()
-
