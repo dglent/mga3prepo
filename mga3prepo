@@ -20,7 +20,7 @@ import os
 import subprocess
 import gettext
 import sys
-import platform
+import distro
 
 
 class Mga3prepo(object):
@@ -37,7 +37,7 @@ class Mga3prepo(object):
         self.path = 'media_info/synthesis.hdlist.cz'
         self.nomedia = self._('*** You have to add at least one media first\n')
         self.search = True
-        self.sysVersion = platform.dist()[1]
+        self.sysVersion = distro.linux_distribution()[1]
 
         # Move the configuration file from the old version path: "~/" to "~/.config/"
         os.chdir(self.home)
@@ -46,11 +46,10 @@ class Mga3prepo(object):
 
         # Creates config if file does n't exist (eg first launch)
         try:
-            os.chdir(self.home+self.name_cd)
+            os.chdir(self.home + self.name_cd)
         except:
-            os.mkdir(self.home+self.name_cd)
-            os.chdir(self.home+self.name_cd)
-
+            os.mkdir(self.home + self.name_cd)
+            os.chdir(self.home + self.name_cd)
 
     def info(self):
         print(self._('Here is a list with some of the unofficial repositories for Mageia {0}:').format(self.sysVersion))
@@ -75,7 +74,7 @@ class Mga3prepo(object):
         print(('http://ftp.blogdrake.net/mageia/mageia{0}/free/noarch/').format(self.sysVersion))
         print(('http://ftp.blogdrake.net/mageia/mageia{0}/non-free/i586/').format(self.sysVersion))
         print(('http://ftp.blogdrake.net/mageia/mageia{0}/non-free/x86_64/').format(self.sysVersion))
-        #print('http://ftp.blogdrake.net/mageia/mageia3/non-free/noarch/')
+        # print('http://ftp.blogdrake.net/mageia/mageia3/non-free/noarch/')
         print(self._('6. France'))
         print(('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/{0}/i586/core/').format(self.sysVersion))
         print(('ftp://download.asso-linux-online.fr/download/packages-mlo/Mageia/{0}/i586/nonfree/').format(self.sysVersion))
@@ -141,20 +140,20 @@ class Mga3prepo(object):
                 input(self._('You have to enter an url'))
                 continue
             if media_url.endswith('/') is False:
-                media_url = media_url+'/'
+                media_url = media_url + '/'
             if media_url in url_present:
                 input(self._('*** The media url already exists'))
                 continue
 
             # The url of the synthesis
-            newpath = media_url+self.path
+            newpath = media_url + self.path
             subprocess.call(['wget', '--timeout=10', '--tries=1', newpath])
 
             if os.path.exists('synthesis.hdlist.cz'):
-                media = (media_name+'@'+newpath+'\n')
+                media = (media_name + '@' + newpath + '\n')
                 file_c.write(media)
                 file_c.close()
-                print(self._('\n *** Added media: ')+media_name)
+                print(self._('\n *** Added media: ') + media_name)
                 print(media_url)
                 input()
                 os.remove('synthesis.hdlist.cz')
@@ -257,7 +256,7 @@ class Mga3prepo(object):
                 decompressed = open(key)
                 file_present = True
             except:
-                print(self._('No such file ')+key)
+                print(self._('No such file ') + key)
 
             if file_present:
                 for i in decompressed:
@@ -272,12 +271,12 @@ class Mga3prepo(object):
                         # Make a string with the format: 'name@version'
                         name_v = rpmname
                         n_vfind = name_v.rfind('-')
-                        name_v = name_v[n_vfind-1::-1]
+                        name_v = name_v[n_vfind - 1::-1]
                         name_v = (name_v[::-1])
                         n_vfind = name_v.rfind('-')
-                        name_v = name_v[:n_vfind]+'@'+name_v[n_vfind+1:]
+                        name_v = name_v[:n_vfind] + '@' + name_v[n_vfind + 1:]
                         with open('rpm_u.txt', 'a') as rpm_u:
-                            rpm_u.write(name_v+'\n')
+                            rpm_u.write(name_v + '\n')
 
             # if for some reason the downloaded files are deleted or missing:
             if file_present:
@@ -302,10 +301,10 @@ class Mga3prepo(object):
 
         count = 0
         if self.search:
-            print('-'*70+'\n')
+            print('-' * 70 + '\n')
             for i in self.lista1:
                 print(i, '\n')
-            print('-'*70)
+            print('-' * 70)
 
             for i in range(0, len(self.lista1)):
                 count += 1
@@ -318,7 +317,7 @@ class Mga3prepo(object):
         self.dmatchi = {}
         self.fetch_synthesis('')
 
-        print('-'*70)
+        print('-' * 70)
         os.system('rpm -qa --qf "%{NAME}@%{VERSION}\n"|sort >rpm_i.txt')
         with open('rpm_i.txt', 'r') as rpm_i:
             lrpmi = rpm_i.readlines()
@@ -328,7 +327,7 @@ class Mga3prepo(object):
         for i in lrpmu:
             add = True
             ifind = i.index('@')
-            uversion = (i[ifind+1:]).strip()
+            uversion = (i[ifind + 1:]).strip()
             uname = (i[:ifind]).strip()
             doublver = []
             existver = []
@@ -356,7 +355,7 @@ class Mga3prepo(object):
                 if i[:ifind] == key:
                     # Make a dico with name and the version of installed rpm
                     # if rpm exists in a 3p repository
-                    self.dmatchi[i[:ifind]] = i[ifind+1:]
+                    self.dmatchi[i[:ifind]] = i[ifind + 1:]
 
         total = 0
         for (key, value) in self.dmatchu.items():
@@ -376,7 +375,7 @@ class Mga3prepo(object):
                             total += 1
                             break
 
-        print('-'*70+'\n'+self._('rpm with new version:')
+        print('-' * 70 + '\n' + self._('rpm with new version:')
               + (' {0}\n').format(total))
 
     def llength(self):
@@ -429,7 +428,7 @@ class Mga3prepo(object):
             if choice == '2':
                 self.add_media()
             if choice == '3':
-                    self.list_media()
+                self.list_media()
             if choice == '4':
                 if self.llength() == 0:
                     input(self.nomedia)
