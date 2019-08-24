@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-06 09:51+0200\n"
+"POT-Creation-Date: 2019-08-24 17:11+0200\n"
 "PO-Revision-Date: 2013-10-04 04:38+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: French <kde-i18n-fr@kde.org>\n"
@@ -22,7 +22,7 @@ msgid "*** You have to add at least one media first\n"
 msgstr "*** Vous devez d'abord ajouter au moins un dépôt\n"
 
 #: mga3prepo:55
-#, fuzzy
+#, fuzzy, python-brace-format
 msgid "Here is a list with some of the unofficial repositories for Mageia {0}:"
 msgstr "Voici une liste avec quelques dépôts non officiels pour Mageia (3):"
 
@@ -54,35 +54,35 @@ msgstr "5. Espagne"
 msgid "6. France"
 msgstr "6. France"
 
-#: mga3prepo:127
+#: mga3prepo:123
 msgid "Enter media name (Enter to quit or * for info):\n"
 msgstr "Saisissez le nom du dépôt (\"Enter\" pour quitter ou * pour info):\n"
 
-#: mga3prepo:135
+#: mga3prepo:131
 msgid "*** The media name already exists"
 msgstr "*** Le nom du dépôt existe déjà"
 
-#: mga3prepo:138
+#: mga3prepo:134
 msgid "The name cannot include the key character '@'"
 msgstr ""
 
-#: mga3prepo:139
+#: mga3prepo:135
 msgid "Please choose another one"
 msgstr ""
 
-#: mga3prepo:142
+#: mga3prepo:138
 msgid "Enter media url:\n"
 msgstr "Saisissez l'url du dépôt:\n"
 
-#: mga3prepo:144
+#: mga3prepo:140
 msgid "You have to enter an url"
 msgstr "Vous devez saisir une url"
 
-#: mga3prepo:149
+#: mga3prepo:145
 msgid "*** The media url already exists"
 msgstr "*** L'url du dépôt existe déjà"
 
-#: mga3prepo:160
+#: mga3prepo:156
 msgid ""
 "\n"
 " *** Added media: "
@@ -90,84 +90,84 @@ msgstr ""
 "\n"
 " *** Dépôt ajouté: "
 
-#: mga3prepo:165
+#: mga3prepo:161
 msgid "*** Cannot found media with synthesis in:"
 msgstr "*** Impossible de trouver le dépôt avec \"synthesis\" dans:"
 
-#: mga3prepo:175
+#: mga3prepo:170
 msgid "Enter the name of the media to delete (Enter to quit):\n"
 msgstr "Saisissez le nom du dépôt que vous souhaitez effacer ('Enter' pour quitter):\n"
 
-#: mga3prepo:180
+#: mga3prepo:175
 msgid "*** The media does n't exist"
 msgstr "*** Le dépôt n'existe pas"
 
-#: mga3prepo:199
+#: mga3prepo:193
 msgid "Empty media list"
 msgstr "La liste des dépôts est vide"
 
-#: mga3prepo:266
+#: mga3prepo:259
 msgid "No such file "
 msgstr "Fichier non existant "
 
-#: mga3prepo:301
+#: mga3prepo:294
 msgid "Found"
 msgstr ""
 
-#: mga3prepo:302
+#: mga3prepo:295
 msgid "in repo:"
 msgstr ""
 
-#: mga3prepo:302
+#: mga3prepo:295
 msgid "url:"
 msgstr ""
 
-#: mga3prepo:318
+#: mga3prepo:311
 msgid "Total:"
 msgstr "Total:"
 
-#: mga3prepo:387
+#: mga3prepo:378
 msgid "rpm with new version:"
 msgstr ""
 
-#: mga3prepo:400
+#: mga3prepo:389
 msgid "*** No configured media ***"
 msgstr "*** Aucun dépôts configurés ***"
 
-#: mga3prepo:401
+#: mga3prepo:390
 msgid "Launch the script without arguments,"
 msgstr "Lancez le script sans arguments,"
 
-#: mga3prepo:402
+#: mga3prepo:391
 msgid "and add at least one media from the menu 'Add media'"
 msgstr "et ajoutez au moins un dépôt depuis le menu « Ajouter un dépôt »"
 
-#: mga3prepo:413
+#: mga3prepo:401
 msgid "Search package"
 msgstr "Recherche de paquetage"
 
-#: mga3prepo:414
+#: mga3prepo:402
 msgid "Add media"
 msgstr "Ajouter un dépôt"
 
-#: mga3prepo:415
+#: mga3prepo:403
 msgid "List media"
 msgstr "Afficher les dépôts"
 
-#: mga3prepo:416
+#: mga3prepo:404
 msgid "Delete media"
 msgstr "Supprimer un dépôt"
 
-#: mga3prepo:417
+#: mga3prepo:405
 #, fuzzy
 msgid "Search updates"
 msgstr "Recherche de paquetage"
 
-#: mga3prepo:429
+#: mga3prepo:417
 msgid "Press 'enter' to quit, '*' to list all packages"
 msgstr "Appuyez sur 'enter' pour quitter, ou '*' pour afficher tous les paquetages disponibles"
 
-#: mga3prepo:430
+#: mga3prepo:418
 msgid "Enter the name of the package:"
 msgstr "Saisissez le nom du paquetage:"
 
